@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEED Amplifiers | Resilience, grown from the start</title>
+<meta name="description" content="SEED Amplifiers, Inc. helps strong ideas take root, grow, and be heard.">
+<meta property="og:title" content="SEED Amplifiers">
+<meta property="og:description" content="Resilience, grown from the start.">
+<meta property="og:url" content="https://seedresilience.io">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6b4f'/%3E%3Cpath d='M32 50V30' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M32 32C32 22 24 16 14 16c0 10 6 16 18 16z' fill='%23fff'/%3E%3Cpath d='M32 28c0-8 6-13 16-13 0 9-5 13-16 13z' fill='%23f2b84b'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --green-900:#12372a; --green-700:#1f5a41; --green-600:#2f6b4f; --green-100:#e6f0ea;
+    --sand:#faf8f3; --ink:#1b2420; --muted:#5b6b63; --amber:#f2b84b; --line:#e3e8e4; --white:#fff;
+    --radius:16px; --max:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--sand);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  /* Nav */
+  header{position:sticky;top:0;z-index:10;background:rgba(250,248,243,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.02em;color:var(--green-900)}
+  .brand svg{width:30px;height:30px}
+  .nav ul{display:flex;gap:28px;list-style:none;font-size:.95rem;color:var(--muted)}
+  .nav ul a:hover{color:var(--green-700)}
+  .btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .15s,background .15s,box-shadow .15s}
+  .btn-primary{background:var(--green-600);color:var(--white)}
+  .btn-primary:hover{background:var(--green-700);transform:translateY(-1px);box-shadow:0 8px 20px rgba(31,90,65,.25)}
+  .btn-ghost{border:1.5px solid var(--green-600);color:var(--green-700)}
+  .btn-ghost:hover{background:var(--green-100)}
+
+  /* Hero */
+  .hero{padding:80px 0 72px;background:
+    radial-gradient(900px 420px at 85% 10%,rgba(242,184,75,.18),transparent 60%),
+    radial-gradient(700px 400px at 0% 100%,rgba(47,107,79,.12),transparent 60%)}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-600);background:var(--green-100);padding:6px 12px;border-radius:999px;margin-bottom:20px}
+  h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.08;letter-spacing:-.02em;color:var(--green-900);margin-bottom:20px}
+  h1 span{color:var(--green-600)}
+  .lead{font-size:1.15rem;color:var(--muted);max-width:520px;margin-bottom:32px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-art{width:100%;height:auto}
+
+  /* Sections */
+  section{padding:84px 0}
+  .section-head{max-width:640px;margin-bottom:48px}
+  .section-head h2{font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1.15;letter-spacing:-.01em;color:var(--green-900);margin-bottom:12px}
+  .section-head p{color:var(--muted);font-size:1.05rem}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(18,55,42,.08)}
+  .icon{width:52px;height:52px;border-radius:14px;background:var(--green-100);display:grid;place-items:center;margin-bottom:20px}
+  .icon svg{width:28px;height:28px}
+  .card h3{font-size:1.2rem;color:var(--green-900);margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.98rem}
+
+  /* How it works */
+  .steps-bg{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;counter-reset:s}
+  .step{position:relative;padding-top:56px}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;width:40px;height:40px;border-radius:50%;background:var(--green-600);color:#fff;font-weight:700;display:grid;place-items:center}
+  .step::after{content:"";position:absolute;top:20px;left:52px;right:-16px;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 14px)}
+  .step:last-child::after{display:none}
+  .step h3{color:var(--green-900);margin-bottom:6px}
+  .step p{color:var(--muted)}
+
+  /* Mission band */
+  .band{background:var(--green-900);color:#e9f2ed;position:relative;overflow:hidden}
+  .band-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .band h2{color:#fff;font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1.15;margin-bottom:16px}
+  .band p{color:#c5d9cf;margin-bottom:14px}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:24px}
+  .stat b{display:block;font-size:1.9rem;color:var(--amber);letter-spacing:-.01em}
+  .stat span{font-size:.92rem;color:#c5d9cf}
+
+  /* Contact */
+  .contact{text-align:center}
+  .contact-box{background:linear-gradient(135deg,var(--green-100),#fdf3de);border:1px solid var(--line);border-radius:24px;padding:64px 24px}
+  .contact h2{font-size:clamp(1.7rem,3.2vw,2.3rem);color:var(--green-900);margin-bottom:12px}
+  .contact p{color:var(--muted);max-width:520px;margin:0 auto 28px}
+
+  footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+  .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+  @media (max-width:860px){
+    .hero-grid,.band-grid{grid-template-columns:1fr}
+    .cards,.steps{grid-template-columns:1fr}
+    .step::after{display:none}
+    .nav ul{display:none}
+    .hero{padding:48px 0}
+    section{padding:60px 0}
+    .hero-art{max-width:420px;margin:0 auto}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="SEED Amplifiers home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#2f6b4f"/><path d="M32 50V30" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M32 32C32 22 24 16 14 16c0 10 6 16 18 16z" fill="#fff"/><path d="M32 28c0-8 6-13 16-13 0 9-5 13-16 13z" fill="#f2b84b"/></svg>
+      SEED Amplifiers
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#what">What we do</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#mission">Mission</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">SEED Amplifiers, Inc.</span>
+        <h1>Resilience, <span>grown from the start.</span></h1>
+        <!-- EDIT: replace with your real one-sentence description -->
+        <p class="lead">We help strong ideas take root, grow, and be heard. Thoughtful support at the earliest stage, built to last long after the first season.</p>
+        <div class="cta">
+          <a href="#contact" class="btn btn-primary">Work with us</a>
+          <a href="#what" class="btn btn-ghost">Learn more</a>
+        </div>
+      </div>
+
+      <!-- Hero illustration: sprout with amplifying signal rings (inline SVG, no external images) -->
+      <svg class="hero-art" viewBox="0 0 480 440" role="img" aria-label="A seedling sending out expanding rings, representing growth and amplification">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e6f0ea"/><stop offset="1" stop-color="#fdf3de"/>
+          </linearGradient>
+          <linearGradient id="leafA" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#3f8a67"/><stop offset="1" stop-color="#1f5a41"/>
+          </linearGradient>
+          <linearGradient id="leafB" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f7cf7a"/><stop offset="1" stop-color="#e9a83a"/>
+          </linearGradient>
+        </defs>
+        <rect x="10" y="10" width="460" height="420" rx="32" fill="url(#sky)"/>
+        <g fill="none" stroke="#2f6b4f" stroke-linecap="round">
+          <circle cx="240" cy="230" r="70"  stroke-opacity=".35" stroke-width="2.5"/>
+          <circle cx="240" cy="230" r="115" stroke-opacity=".25" stroke-width="2.5"/>
+          <circle cx="240" cy="230" r="160" stroke-opacity=".15" stroke-width="2.5"/>
+          <circle cx="240" cy="230" r="205" stroke-opacity=".08" stroke-width="2.5"/>
+        </g>
+        <!-- soil mound -->
+        <path d="M120 372c30-34 90-46 120-46s90 12 120 46v18H120z" fill="#12372a"/>
+        <path d="M150 372c26-22 62-30 90-30s64 8 90 30" fill="none" stroke="#1f5a41" stroke-width="3" stroke-linecap="round"/>
+        <!-- stem -->
+        <path d="M240 336c0-40 2-80-2-120" stroke="#1f5a41" stroke-width="9" stroke-linecap="round" fill="none"/>
+        <!-- leaves -->
+        <path d="M238 232C238 160 180 118 108 120c0 72 46 116 130 112z" fill="url(#leafA)"/>
+        <path d="M238 216c-2-62 44-100 112-98-2 68-40 100-112 98z" fill="url(#leafB)"/>
+        <path d="M238 232c-30-28-62-52-108-96" stroke="#e6f0ea" stroke-width="3" stroke-linecap="round" fill="none" opacity=".7"/>
+        <path d="M238 216c26-22 56-50 92-86" stroke="#fff8e8" stroke-width="3" stroke-linecap="round" fill="none" opacity=".8"/>
+        <!-- sparkles -->
+        <g fill="#f2b84b">
+          <circle cx="92" cy="86" r="5"/><circle cx="392" cy="96" r="6"/><circle cx="410" cy="300" r="4"/><circle cx="70" cy="290" r="4"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- WHAT WE DO -->
+  <section id="what">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Built to help good ideas last</h2>
+        <!-- EDIT: tighten to match your actual offering -->
+        <p>Three principles guide everything we do.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12c0-5-4-8-9-8 0 5 3 8 9 8z"/><path d="M12 10c0-4 3-6 8-6 0 4-3 6-8 6z"/></svg>
+          </div>
+          <h3>Plant early</h3>
+          <p>The first steps shape everything after. We get involved at the beginning, when the right foundation matters most.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg>
+          </div>
+          <h3>Amplify what works</h3>
+          <p>Good ideas deserve a bigger voice. We find the strongest signal and help it reach the people who need it.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>Build resilience</h3>
+          <p>Growth that survives hard seasons. We design for durability, so progress holds up when conditions change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="steps-bg">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How we work together</h2>
+        <p>A simple, collaborative process from first conversation to lasting impact.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>Listen</h3>
+          <p>We start by understanding your goals, your context, and what success looks like for you.</p>
+        </div>
+        <div class="step">
+          <h3>Grow</h3>
+          <p>Together we build a clear plan and put it into motion, with steady check-ins along the way.</p>
+        </div>
+        <div class="step">
+          <h3>Amplify</h3>
+          <p>We help your work reach further, and set it up to keep growing on its own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section id="mission" class="band">
+    <div class="wrap band-grid">
+      <div>
+        <h2>Small beginnings, lasting roots</h2>
+        <!-- EDIT: replace with your real mission statement -->
+        <p>SEED Amplifiers exists to give promising work the support it needs at the moment it needs it most.</p>
+        <p>We believe resilience is not a trait you add later. It is something you plant on day one.</p>
+      </div>
+      <!-- EDIT: swap in real numbers or delete this block -->
+      <div class="stats">
+        <div class="stat"><b>Day one</b><span>When we get involved</span></div>
+        <div class="stat"><b>Long-term</b><span>How we measure success</span></div>
+        <div class="stat"><b>Together</b><span>How we work</span></div>
+        <div class="stat"><b>Durable</b><span>What we build</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <h2>Let's grow something together</h2>
+        <p>Tell us what you're working on. We'd love to hear from you.</p>
+        <!-- EDIT: confirm this inbox exists on your domain -->
+        <a class="btn btn-primary" href="mailto:hello@seedresilience.io">hello@seedresilience.io</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; <span id="yr">2026</span> SEED Amplifiers, Inc. All rights reserved.</span>
+    <span>seedresilience.io</span>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
