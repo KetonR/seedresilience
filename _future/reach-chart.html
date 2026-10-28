@@ -1,0 +1,127 @@
+<!--
+  BOOKMARKED FOR LATER: the interactive "reach" chart (hover or tap a bar to see the breakdown).
+  Removed from the live page on 2026-10-28 because the numbers are small until there are more talks.
+  Folders starting with "_" are not published by GitHub Pages.
+
+  TO RESTORE
+  1. Replace the <div class="reach" id="reachCharts"> block in index.html with the HTML below.
+  2. Paste the CSS into the <style> block (replace the "/* Reach */" rules).
+  3. Paste the JS into the <script> (replace the "1) Reach numbers" function).
+  4. Update the numbers/labels, and the readout text in data-tip.
+-->
+
+<!-- ===================== HTML ===================== -->
+  <!-- REACH: interactive chart -->
+  <div class="reach-band" id="reach">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What we've done so far</h2>
+        <p>SEED is just getting started, and it is already reaching people online and in the room. Hover or tap a bar to see where the numbers come from.</p>
+      </div>
+      <div class="reach" id="reachCharts">
+
+        <div class="rcard" data-default="Hover or tap a bar to see the detail behind the number.">
+          <span class="num" data-count="100000" data-suffix="+">100,000+</span>
+          <span class="cap">Online views</span>
+          <ul class="bars">
+            <li class="bar" tabindex="0" data-tip="<b>TEDx talk on YouTube.</b> Nate's first TEDx talk has been watched more than 100,000 times.">
+              <span class="b-label">TEDx talk on YouTube</span><span class="b-track"><span class="b-fill" style="--w:100%"></span></span><span class="b-val">100,000+</span>
+            </li>
+            <li class="bar" tabindex="0" data-tip="<b>Instagram.</b> Personal Instagram content has each passed 1,000. Small next to the talk, and growing.">
+              <span class="b-label">Instagram</span><span class="b-track"><span class="b-fill" style="--w:6%"></span></span><span class="b-val">1,000+ each</span>
+            </li>
+          </ul>
+          <div class="readout" aria-live="polite">Hover or tap a bar to see the detail behind the number.</div>
+        </div>
+
+        <div class="rcard" data-default="Hover or tap a bar to see the detail behind the number.">
+          <span class="num" data-count="1000" data-suffix="+">1,000+</span>
+          <span class="cap">People in the room</span>
+          <ul class="bars">
+            <li class="bar" tabindex="0" data-tip="<b>TEDx Riverfield.</b> Roughly 800 people in the audience for Nate's talk.">
+              <span class="b-label">TEDx Riverfield</span><span class="b-track"><span class="b-fill" style="--w:100%"></span></span><span class="b-val">~800</span>
+            </li>
+            <li class="bar" tabindex="0" data-tip="<b>Other talks and events.</b> A few more speaking engagements add roughly 200 more people.">
+              <span class="b-label">Other talks</span><span class="b-track"><span class="b-fill" style="--w:25%"></span></span><span class="b-val">~200+</span>
+            </li>
+          </ul>
+          <div class="readout" aria-live="polite">Hover or tap a bar to see the detail behind the number.</div>
+        </div>
+
+      </div>
+      <p class="reach-note">In-person figures are estimates. Online views count the YouTube talk and Instagram.</p>
+    </div>
+  </div>
+
+
+
+<!-- ===================== CSS ===================== -->
+<style>
+  /* Reach (interactive chart) */
+  .reach-band{background:linear-gradient(160deg,var(--green-900),#0b261c);color:#e9f2ed;padding:88px 0}
+  .reach-band .section-head h2{color:#fff}
+  .reach-band .section-head p{color:#bcd5c8}
+  .reach{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .rcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:36px 34px 30px;transition:transform .25s,background .25s,border-color .25s}
+  .rcard:hover{transform:translateY(-6px);background:rgba(255,255,255,.1);border-color:rgba(242,184,75,.6)}
+  .rcard .num{display:block;font-size:clamp(3.4rem,7.5vw,5.6rem);font-weight:800;letter-spacing:-.04em;color:var(--amber);line-height:1}
+  .rcard .cap{display:block;margin:10px 0 26px;font-size:1.25rem;color:#d7e8df;font-weight:700}
+  .bars{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .bar{display:grid;grid-template-columns:150px 1fr auto;gap:14px;align-items:center;padding:10px 12px;border-radius:14px;cursor:pointer;transition:background .15s;font-size:1rem}
+  .bar:hover,.bar:focus-visible,.bar.on{background:rgba(255,255,255,.12)}
+  .bar .b-label{font-weight:700;color:#fff;line-height:1.25}
+  .bar .b-track{height:16px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden}
+  .bar .b-fill{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#f7cf7a,var(--amber-d));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+  .rcard.in .b-fill{width:var(--w)}
+  .bar:hover .b-fill,.bar.on .b-fill{filter:brightness(1.12)}
+  .bar .b-val{font-weight:800;color:var(--amber);font-size:1.05rem;min-width:84px;text-align:right}
+  .readout{margin-top:20px;min-height:3.4em;padding:14px 16px;border-radius:14px;background:rgba(0,0,0,.22);color:#d7e8df;font-size:1rem;line-height:1.45;border-left:4px solid var(--amber)}
+  .readout b{color:#fff}
+  .reach-note{margin-top:22px;color:#9fc2b1;font-size:.92rem}
+
+</style>
+
+<!-- ===================== JS ===================== -->
+<script>
+  // 1) Reach chart: animate on scroll, count up, and show details on hover / focus / tap.
+  (function(){
+    var cards = document.querySelectorAll('.rcard');
+    function countUp(el){
+      var end = Number(el.dataset.count), suf = el.dataset.suffix || '', t0 = null;
+      function tick(ts){
+        if(t0===null) t0 = ts;
+        var p = Math.min((ts - t0) / 1400, 1), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(end * e).toLocaleString() + suf;
+        if(p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(!en.isIntersecting) return;
+          en.target.classList.add('in');
+          var n = en.target.querySelector('.num[data-count]');
+          if(n && !reduce) countUp(n);
+          io.unobserve(en.target);
+        });
+      }, {threshold:.35});
+      cards.forEach(function(c){ io.observe(c); });
+    } else { cards.forEach(function(c){ c.classList.add('in'); }); }
+
+    cards.forEach(function(card){
+      var readout = card.querySelector('.readout'), def = card.dataset.default;
+      function show(bar){
+        card.querySelectorAll('.bar').forEach(function(b){ b.classList.toggle('on', b === bar); });
+        readout.innerHTML = bar ? bar.dataset.tip : def;
+      }
+      card.querySelectorAll('.bar').forEach(function(bar){
+        bar.addEventListener('mouseenter', function(){ show(bar); });
+        bar.addEventListener('focus', function(){ show(bar); });
+        bar.addEventListener('click', function(){ show(bar); });
+      });
+      card.addEventListener('mouseleave', function(){ show(null); });
+    });
+  })();
+
+</script>

@@ -61,10 +61,6 @@
   .collage .inset{position:absolute;left:-28px;bottom:0;width:52%;border-radius:20px;overflow:hidden;border:6px solid var(--sand);box-shadow:0 18px 40px rgba(15,49,37,.28);aspect-ratio:3/2;transition:transform .3s}
   .collage .inset img{width:100%;height:100%;object-fit:cover}
   .collage .inset:hover{transform:translateY(-6px) rotate(-1.5deg)}
-  .collage .chip{position:absolute;right:-12px;bottom:18px;background:var(--green-900);color:#fff;border-radius:18px;padding:14px 20px;box-shadow:0 18px 36px rgba(15,49,37,.35);transition:transform .3s}
-  .collage .chip:hover{transform:translateY(-6px)}
-  .collage .chip b{display:block;font-size:1.9rem;line-height:1.05;color:var(--amber);letter-spacing:-.02em}
-  .collage .chip span{font-size:.9rem;color:#cfe3d8;font-weight:600}
   .collage .tagline{position:absolute;left:18px;top:18px;background:rgba(15,49,37,.82);color:#fff;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 13px;border-radius:999px;backdrop-filter:blur(4px)}
 
   /* Quick links */
@@ -75,8 +71,7 @@
   .qlink .qi{flex:none;width:46px;height:46px;border-radius:13px;background:var(--green-100);display:grid;place-items:center;transition:background .2s}
   .qlink:hover .qi{background:var(--amber)}
   .qlink .qi svg{width:24px;height:24px}
-  .qlink b{display:block;font-size:1.08rem;color:var(--green-900);line-height:1.2}
-  .qlink small{display:block;font-size:.9rem;color:var(--muted);margin-top:3px;line-height:1.3}
+  .qlink b{display:block;font-size:1.18rem;color:var(--green-900);line-height:1.25;font-weight:800}
 
   section{padding:92px 0}
   .section-head{max-width:760px;margin-bottom:52px}
@@ -85,27 +80,15 @@
   .alt{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .tag{display:inline-block;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green-700);background:var(--green-100);padding:6px 12px;border-radius:999px}
 
-  /* Reach (interactive chart) */
+  /* Reach */
   .reach-band{background:linear-gradient(160deg,var(--green-900),#0b261c);color:#e9f2ed;padding:88px 0}
   .reach-band .section-head h2{color:#fff}
   .reach-band .section-head p{color:#bcd5c8}
   .reach{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-  .rcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:36px 34px 30px;transition:transform .25s,background .25s,border-color .25s}
+  .rcard{text-align:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:52px 30px 46px;transition:transform .25s,background .25s,border-color .25s}
   .rcard:hover{transform:translateY(-6px);background:rgba(255,255,255,.1);border-color:rgba(242,184,75,.6)}
-  .rcard .num{display:block;font-size:clamp(3.4rem,7.5vw,5.6rem);font-weight:800;letter-spacing:-.04em;color:var(--amber);line-height:1}
-  .rcard .cap{display:block;margin:10px 0 26px;font-size:1.25rem;color:#d7e8df;font-weight:700}
-  .bars{list-style:none;display:flex;flex-direction:column;gap:12px}
-  .bar{display:grid;grid-template-columns:150px 1fr auto;gap:14px;align-items:center;padding:10px 12px;border-radius:14px;cursor:pointer;transition:background .15s;font-size:1rem}
-  .bar:hover,.bar:focus-visible,.bar.on{background:rgba(255,255,255,.12)}
-  .bar .b-label{font-weight:700;color:#fff;line-height:1.25}
-  .bar .b-track{height:16px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden}
-  .bar .b-fill{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#f7cf7a,var(--amber-d));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
-  .rcard.in .b-fill{width:var(--w)}
-  .bar:hover .b-fill,.bar.on .b-fill{filter:brightness(1.12)}
-  .bar .b-val{font-weight:800;color:var(--amber);font-size:1.05rem;min-width:84px;text-align:right}
-  .readout{margin-top:20px;min-height:3.4em;padding:14px 16px;border-radius:14px;background:rgba(0,0,0,.22);color:#d7e8df;font-size:1rem;line-height:1.45;border-left:4px solid var(--amber)}
-  .readout b{color:#fff}
-  .reach-note{margin-top:22px;color:#9fc2b1;font-size:.92rem}
+  .rcard .num{display:block;font-size:clamp(3.6rem,8vw,6rem);font-weight:800;letter-spacing:-.04em;color:var(--amber);line-height:1}
+  .rcard .cap{display:block;margin-top:14px;font-size:1.35rem;color:#d7e8df;font-weight:700}
 
   /* Talks (big) */
   .talk-feature{display:grid;grid-template-columns:1.55fr 1fr;gap:40px;align-items:center;margin-bottom:56px}
@@ -204,9 +187,7 @@
   .preview .open{position:absolute;z-index:2;left:50%;bottom:22px;transform:translateX(-50%) translateY(10px);opacity:0;background:var(--green-900);color:#fff;font-weight:800;padding:12px 22px;border-radius:999px;white-space:nowrap;transition:opacity .3s,transform .3s;box-shadow:0 12px 26px rgba(0,0,0,.3)}
   .preview:hover .open,.preview:focus-visible .open{opacity:1;transform:translateX(-50%)}
   .paper h3{font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.2;color:var(--green-900);margin:14px 0 16px;font-weight:800;letter-spacing:-.015em}
-  .authors{color:var(--ink);font-size:1.15rem;font-weight:700;margin-bottom:6px}
-  .affil{color:var(--muted);font-size:1rem;line-height:1.5}
-  .abs{margin-top:26px}
+  .abs{margin-top:20px}
   .abs p{font-size:1.2rem;color:var(--ink);margin-bottom:16px;line-height:1.55}
   .abs ul{list-style:none;margin:0 0 28px}
   .abs li{padding-left:32px;position:relative;margin-bottom:12px;color:var(--muted);font-size:1.1rem}
@@ -231,8 +212,7 @@
     .hero{padding:40px 0 36px}
     section{padding:64px 0}
     .collage .inset{left:-8px;width:50%}
-    .collage .chip{right:-4px}
-    .founder{gap:40px}
+      .founder{gap:40px}
     .panel-wrap{grid-template-columns:1fr;padding:26px}
     .grow{max-width:220px;margin:0 auto}
     .speak{padding:40px 28px}
@@ -249,13 +229,8 @@
     h1{font-size:2.5rem}
     .collage{padding-bottom:52px}
     .collage .inset{width:46%;left:-6px}
-    .collage .chip{padding:10px 14px;right:0;bottom:6px}
-    .collage .chip b{font-size:1.45rem}
-    .collage .chip span{font-size:.8rem}
-    .quick-grid{grid-template-columns:1fr}
-    .bar{grid-template-columns:1fr auto;grid-template-areas:"l v" "t t"}
-    .bar .b-label{grid-area:l}.bar .b-val{grid-area:v}.bar .b-track{grid-area:t}
-    .rcard{padding:28px 22px 24px}
+          .quick-grid{grid-template-columns:1fr}
+    .rcard{padding:40px 22px 36px}
     .founder-photos .photo:nth-child(2){margin-top:24px}
     .btn{padding:14px 22px}
   }
@@ -309,7 +284,6 @@
         <div class="inset">
           <img src="assets/nate-speaking-students.jpg" alt="Nate Roy speaking with a gym full of students">
         </div>
-        <div class="chip"><b>100,000+</b><span>online views</span></div>
       </div>
     </div>
   </div>
@@ -319,62 +293,40 @@
     <div class="wrap quick-grid">
       <a class="qlink" href="https://youtu.be/0JmkDyIbEZw" target="_blank" rel="noopener">
         <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="#164633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z" fill="#164633"/></svg></span>
-        <span><b>Watch the TEDx talk</b><small>100,000+ views</small></span>
+        <span><b>Watch the TEDx talk</b></span>
       </a>
       <a class="qlink" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7045858" target="_blank" rel="noopener">
         <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="#164633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
-        <span><b>Read the preprint</b><small>Published on SSRN</small></span>
+        <span><b>Read the preprint</b></span>
       </a>
       <a class="qlink" href="#founder">
         <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="#164633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
-        <span><b>Meet the founder</b><small>Nate Roy</small></span>
+        <span><b>Meet the founder</b></span>
       </a>
       <a class="qlink" href="mailto:nate@seedresilience.io?subject=Speaking%20inquiry">
         <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="#164633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
-        <span><b>Book Nate to speak</b><small>Schools, teams, conferences</small></span>
+        <span><b>Book Nate to speak</b></span>
       </a>
     </div>
   </div>
 
-  <!-- REACH: interactive chart -->
+  <!-- REACH -->
   <div class="reach-band" id="reach">
     <div class="wrap">
       <div class="section-head">
         <h2>What we've done so far</h2>
-        <p>SEED is just getting started, and it is already reaching people online and in the room. Hover or tap a bar to see where the numbers come from.</p>
+        <p>SEED is just getting started, and it is already reaching people online and in the room.</p>
       </div>
       <div class="reach" id="reachCharts">
-
-        <div class="rcard" data-default="Hover or tap a bar to see the detail behind the number.">
+        <div class="rcard">
           <span class="num" data-count="100000" data-suffix="+">100,000+</span>
           <span class="cap">Online views</span>
-          <ul class="bars">
-            <li class="bar" tabindex="0" data-tip="<b>TEDx talk on YouTube.</b> Nate's first TEDx talk has been watched more than 100,000 times.">
-              <span class="b-label">TEDx talk on YouTube</span><span class="b-track"><span class="b-fill" style="--w:100%"></span></span><span class="b-val">100,000+</span>
-            </li>
-            <li class="bar" tabindex="0" data-tip="<b>Instagram.</b> Personal Instagram content has each passed 1,000. Small next to the talk, and growing.">
-              <span class="b-label">Instagram</span><span class="b-track"><span class="b-fill" style="--w:6%"></span></span><span class="b-val">1,000+ each</span>
-            </li>
-          </ul>
-          <div class="readout" aria-live="polite">Hover or tap a bar to see the detail behind the number.</div>
         </div>
-
-        <div class="rcard" data-default="Hover or tap a bar to see the detail behind the number.">
+        <div class="rcard">
           <span class="num" data-count="1000" data-suffix="+">1,000+</span>
           <span class="cap">People in the room</span>
-          <ul class="bars">
-            <li class="bar" tabindex="0" data-tip="<b>TEDx Riverfield.</b> Roughly 800 people in the audience for Nate's talk.">
-              <span class="b-label">TEDx Riverfield</span><span class="b-track"><span class="b-fill" style="--w:100%"></span></span><span class="b-val">~800</span>
-            </li>
-            <li class="bar" tabindex="0" data-tip="<b>Other talks and events.</b> A few more speaking engagements add roughly 200 more people.">
-              <span class="b-label">Other talks</span><span class="b-track"><span class="b-fill" style="--w:25%"></span></span><span class="b-val">~200+</span>
-            </li>
-          </ul>
-          <div class="readout" aria-live="polite">Hover or tap a bar to see the detail behind the number.</div>
         </div>
-
       </div>
-      <p class="reach-note">In-person figures are estimates. Online views count the YouTube talk and Instagram.</p>
     </div>
   </div>
 
@@ -609,8 +561,6 @@
         <div>
           <span class="tag">Preprint</span>
           <h3>Reconceptualizing Universal Mental Health as Salience-Embedded Experiential Development in Adolescence</h3>
-          <p class="authors">Nate Roy, Keton Johnson, Kevin Wisniewski</p>
-          <p class="affil">Weill Cornell Medical College &middot; Seattle Pacific University &middot; Child &amp; Adolescent Performance Science Laboratory Inc. &middot; Lake Erie College of Osteopathic Medicine</p>
           <div class="abs">
             <p>Universal school-based wellness programs often produce inconsistent results. We argue the cause is a mismatch between clinical and universal settings, not flawed therapeutic methods.</p>
             <ul>
@@ -652,9 +602,10 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // 1) Reach chart: animate on scroll, count up, and show details on hover / focus / tap.
+  // 1) Reach numbers: count up when scrolled into view.
   (function(){
-    var cards = document.querySelectorAll('.rcard');
+    var nums = document.querySelectorAll('.rcard .num[data-count]');
+    if(!('IntersectionObserver' in window) || reduce) return;
     function countUp(el){
       var end = Number(el.dataset.count), suf = el.dataset.suffix || '', t0 = null;
       function tick(ts){
@@ -665,32 +616,13 @@
       }
       requestAnimationFrame(tick);
     }
-    if('IntersectionObserver' in window){
-      var io = new IntersectionObserver(function(es){
-        es.forEach(function(en){
-          if(!en.isIntersecting) return;
-          en.target.classList.add('in');
-          var n = en.target.querySelector('.num[data-count]');
-          if(n && !reduce) countUp(n);
-          io.unobserve(en.target);
-        });
-      }, {threshold:.35});
-      cards.forEach(function(c){ io.observe(c); });
-    } else { cards.forEach(function(c){ c.classList.add('in'); }); }
-
-    cards.forEach(function(card){
-      var readout = card.querySelector('.readout'), def = card.dataset.default;
-      function show(bar){
-        card.querySelectorAll('.bar').forEach(function(b){ b.classList.toggle('on', b === bar); });
-        readout.innerHTML = bar ? bar.dataset.tip : def;
-      }
-      card.querySelectorAll('.bar').forEach(function(bar){
-        bar.addEventListener('mouseenter', function(){ show(bar); });
-        bar.addEventListener('focus', function(){ show(bar); });
-        bar.addEventListener('click', function(){ show(bar); });
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting) return;
+        countUp(en.target); io.unobserve(en.target);
       });
-      card.addEventListener('mouseleave', function(){ show(null); });
-    });
+    }, {threshold:.5});
+    nums.forEach(function(n){ io.observe(n); });
   })();
 
   // 2) Three steps: tabs (click, hover, or arrow keys) with a plant that grows.
