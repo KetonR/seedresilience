@@ -14,144 +14,254 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6b4f'/%3E%3Cpath d='M32 50V30' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M32 32C32 22 24 16 14 16c0 10 6 16 18 16z' fill='%23fff'/%3E%3Cpath d='M32 28c0-8 6-13 16-13 0 9-5 13-16 13z' fill='%23f2b84b'/%3E%3C/svg%3E">
 <style>
   :root{
-    --green-900:#12372a; --green-700:#1f5a41; --green-600:#2f6b4f; --green-100:#e6f0ea;
-    --sand:#faf8f3; --ink:#1b2420; --muted:#5b6b63; --amber:#f2b84b; --line:#e3e8e4; --white:#fff;
-    --radius:16px; --max:1120px;
+    --green-900:#0f3125; --green-800:#164633; --green-700:#1f5a41; --green-600:#2f6b4f; --green-100:#e6f0ea; --green-50:#f1f7f3;
+    --sand:#faf8f3; --ink:#14201a; --muted:#3d4d45; --amber:#f2b84b; --amber-d:#e29a1c; --line:#dde5df; --white:#fff;
+    --radius:20px; --max:1180px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;font-size:112.5%}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--sand);line-height:1.6;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
+  button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  :focus-visible{outline:3px solid var(--amber-d);outline-offset:3px;border-radius:8px}
 
-  header{position:sticky;top:0;z-index:10;background:rgba(250,248,243,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.02em;color:var(--green-900)}
-  .brand svg{width:30px;height:30px}
-  .nav ul{display:flex;gap:26px;list-style:none;font-size:.95rem;color:var(--muted)}
-  .nav ul a:hover{color:var(--green-700)}
-  .btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .15s,background .15s,box-shadow .15s}
+  /* Header */
+  header{position:sticky;top:0;z-index:20;background:rgba(250,248,243,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.01em;color:var(--green-900);font-size:1.12rem}
+  .brand svg{width:34px;height:34px}
+  .nav ul{display:flex;gap:30px;list-style:none;font-size:1rem;color:var(--muted);font-weight:600}
+  .nav ul a{padding:6px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+  .nav ul a:hover{color:var(--green-700);border-color:var(--amber)}
+  .btn{display:inline-block;padding:15px 28px;border-radius:999px;font-weight:700;font-size:1.05rem;transition:transform .15s,background .15s,box-shadow .15s}
   .btn-primary{background:var(--green-600);color:var(--white)}
-  .btn-primary:hover{background:var(--green-700);transform:translateY(-1px);box-shadow:0 8px 20px rgba(31,90,65,.25)}
-  .btn-ghost{border:1.5px solid var(--green-600);color:var(--green-700)}
-  .btn-ghost:hover{background:var(--green-100)}
+  .btn-primary:hover{background:var(--green-700);transform:translateY(-2px);box-shadow:0 12px 26px rgba(31,90,65,.3)}
+  .btn-ghost{border:2px solid var(--green-600);color:var(--green-700)}
+  .btn-ghost:hover{background:var(--green-100);transform:translateY(-2px)}
+  .btn-amber{background:var(--amber);color:#2e2204}
+  .btn-amber:hover{background:#f7c862;transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.25)}
 
-  .hero{padding:80px 0 72px;background:
-    radial-gradient(900px 420px at 85% 10%,rgba(242,184,75,.18),transparent 60%),
-    radial-gradient(700px 400px at 0% 100%,rgba(47,107,79,.12),transparent 60%)}
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-  .eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-600);background:var(--green-100);padding:6px 12px;border-radius:999px;margin-bottom:20px}
-  h1{font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;letter-spacing:-.02em;color:var(--green-900);margin-bottom:20px}
+  /* Hero */
+  .hero{padding:64px 0 56px;background:
+    radial-gradient(900px 460px at 90% 0%,rgba(242,184,75,.22),transparent 60%),
+    radial-gradient(700px 420px at 0% 100%,rgba(47,107,79,.14),transparent 60%)}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+  .eyebrow{display:inline-block;font-size:.85rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green-700);background:var(--green-100);padding:8px 14px;border-radius:999px;margin-bottom:22px}
+  h1{font-size:clamp(2.7rem,6vw,4.6rem);line-height:1.04;letter-spacing:-.03em;color:var(--green-900);margin-bottom:24px;font-weight:800}
   h1 span{color:var(--green-600)}
-  .lead{font-size:1.15rem;color:var(--muted);max-width:540px;margin-bottom:32px}
+  .lead{font-size:1.4rem;line-height:1.5;color:var(--muted);max-width:560px;margin-bottom:34px;font-weight:500}
   .cta{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-art{width:100%;height:auto}
 
-  section{padding:84px 0}
-  .section-head{max-width:680px;margin-bottom:48px}
-  .section-head h2{font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1.15;letter-spacing:-.01em;color:var(--green-900);margin-bottom:12px}
-  .section-head p{color:var(--muted);font-size:1.05rem}
+  .collage{position:relative;padding:0 0 64px 0}
+  .collage .main{border-radius:26px;overflow:hidden;box-shadow:0 26px 60px rgba(15,49,37,.25);aspect-ratio:4/3;background:#1b0f10}
+  .collage .main img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .collage:hover .main img{transform:scale(1.04)}
+  .collage .inset{position:absolute;left:-28px;bottom:0;width:52%;border-radius:20px;overflow:hidden;border:6px solid var(--sand);box-shadow:0 18px 40px rgba(15,49,37,.28);aspect-ratio:3/2;transition:transform .3s}
+  .collage .inset img{width:100%;height:100%;object-fit:cover}
+  .collage .inset:hover{transform:translateY(-6px) rotate(-1.5deg)}
+  .collage .chip{position:absolute;right:-12px;bottom:18px;background:var(--green-900);color:#fff;border-radius:18px;padding:14px 20px;box-shadow:0 18px 36px rgba(15,49,37,.35);transition:transform .3s}
+  .collage .chip:hover{transform:translateY(-6px)}
+  .collage .chip b{display:block;font-size:1.9rem;line-height:1.05;color:var(--amber);letter-spacing:-.02em}
+  .collage .chip span{font-size:.9rem;color:#cfe3d8;font-weight:600}
+  .collage .tagline{position:absolute;left:18px;top:18px;background:rgba(15,49,37,.82);color:#fff;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 13px;border-radius:999px;backdrop-filter:blur(4px)}
 
-  /* Stats */
-  .stats-band{background:var(--green-900);color:#e9f2ed;padding:64px 0}
-  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:760px;margin:0 auto}
-  .stat{text-align:center;padding:12px}
-  .stat .num{display:block;font-size:clamp(2.8rem,7vw,4.6rem);font-weight:800;letter-spacing:-.03em;color:var(--amber);line-height:1.05}
-  .stat .cap{display:block;margin-top:10px;font-size:1rem;color:#c5d9cf}
+  /* Quick links */
+  .quick{margin-top:-8px;padding-bottom:12px}
+  .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .qlink{background:var(--white);border:1.5px solid var(--line);border-radius:18px;padding:20px 22px;display:flex;gap:14px;align-items:center;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .qlink:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(15,49,37,.12);border-color:var(--green-600)}
+  .qlink .qi{flex:none;width:46px;height:46px;border-radius:13px;background:var(--green-100);display:grid;place-items:center;transition:background .2s}
+  .qlink:hover .qi{background:var(--amber)}
+  .qlink .qi svg{width:24px;height:24px}
+  .qlink b{display:block;font-size:1.08rem;color:var(--green-900);line-height:1.2}
+  .qlink small{display:block;font-size:.9rem;color:var(--muted);margin-top:3px;line-height:1.3}
 
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;transition:transform .2s,box-shadow .2s}
-  .card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(18,55,42,.08)}
-  .icon{width:52px;height:52px;border-radius:14px;background:var(--green-100);display:grid;place-items:center;margin-bottom:20px}
-  .icon svg{width:28px;height:28px}
-  .card h3{font-size:1.2rem;color:var(--green-900);margin-bottom:8px}
-  .card p{color:var(--muted);font-size:.98rem}
-  .tag{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green-700);background:var(--green-100);padding:4px 10px;border-radius:999px}
-  .card .tag{margin-top:14px}
-
+  section{padding:92px 0}
+  .section-head{max-width:760px;margin-bottom:52px}
+  .section-head h2,.h2{font-size:clamp(2.1rem,4.4vw,3.2rem);line-height:1.1;letter-spacing:-.025em;color:var(--green-900);margin-bottom:16px;font-weight:800}
+  .section-head p{color:var(--muted);font-size:1.25rem;line-height:1.55}
   .alt{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;counter-reset:s}
-  .step{position:relative;padding-top:56px}
-  .step::before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;width:40px;height:40px;border-radius:50%;background:var(--green-600);color:#fff;font-weight:700;display:grid;place-items:center}
-  .step::after{content:"";position:absolute;top:20px;left:52px;right:-16px;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 14px)}
-  .step:last-child::after{display:none}
-  .step h3{color:var(--green-900);margin-bottom:6px}
-  .step p{color:var(--muted)}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
-  .chips .lbl{width:100%;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-  .chip{background:var(--green-100);color:var(--green-900);padding:8px 16px;border-radius:999px;font-weight:600;font-size:.92rem}
+  .tag{display:inline-block;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green-700);background:var(--green-100);padding:6px 12px;border-radius:999px}
 
-  /* Photos */
-  .photo{margin:0;border-radius:20px;overflow:hidden;background:var(--green-100);position:relative;box-shadow:0 14px 36px rgba(18,55,42,.12)}
-  .photo img{width:100%;height:100%;object-fit:cover}
-  .photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 16px 12px;font-size:.82rem;color:#fff;background:linear-gradient(to top,rgba(10,30,22,.7),transparent)}
+  /* Reach (interactive chart) */
+  .reach-band{background:linear-gradient(160deg,var(--green-900),#0b261c);color:#e9f2ed;padding:88px 0}
+  .reach-band .section-head h2{color:#fff}
+  .reach-band .section-head p{color:#bcd5c8}
+  .reach{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .rcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:36px 34px 30px;transition:transform .25s,background .25s,border-color .25s}
+  .rcard:hover{transform:translateY(-6px);background:rgba(255,255,255,.1);border-color:rgba(242,184,75,.6)}
+  .rcard .num{display:block;font-size:clamp(3.4rem,7.5vw,5.6rem);font-weight:800;letter-spacing:-.04em;color:var(--amber);line-height:1}
+  .rcard .cap{display:block;margin:10px 0 26px;font-size:1.25rem;color:#d7e8df;font-weight:700}
+  .bars{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .bar{display:grid;grid-template-columns:150px 1fr auto;gap:14px;align-items:center;padding:10px 12px;border-radius:14px;cursor:pointer;transition:background .15s;font-size:1rem}
+  .bar:hover,.bar:focus-visible,.bar.on{background:rgba(255,255,255,.12)}
+  .bar .b-label{font-weight:700;color:#fff;line-height:1.25}
+  .bar .b-track{height:16px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden}
+  .bar .b-fill{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#f7cf7a,var(--amber-d));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+  .rcard.in .b-fill{width:var(--w)}
+  .bar:hover .b-fill,.bar.on .b-fill{filter:brightness(1.12)}
+  .bar .b-val{font-weight:800;color:var(--amber);font-size:1.05rem;min-width:84px;text-align:right}
+  .readout{margin-top:20px;min-height:3.4em;padding:14px 16px;border-radius:14px;background:rgba(0,0,0,.22);color:#d7e8df;font-size:1rem;line-height:1.45;border-left:4px solid var(--amber)}
+  .readout b{color:#fff}
+  .reach-note{margin-top:22px;color:#9fc2b1;font-size:.92rem}
+
+  /* Talks (big) */
+  .talk-feature{display:grid;grid-template-columns:1.55fr 1fr;gap:40px;align-items:center;margin-bottom:56px}
+  .talk-feature.flip{grid-template-columns:1fr 1.55fr}
+  .talk-feature.flip .media{order:2}
+  .media{aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:#0e1a15;position:relative;box-shadow:0 26px 60px rgba(15,49,37,.22)}
+  .media iframe,.media img{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+  .media.soon img{filter:brightness(.78);transition:transform .6s,filter .3s}
+  .media.soon:hover img{transform:scale(1.04);filter:brightness(.9)}
+  .media .pill{position:absolute;left:20px;bottom:20px;background:var(--amber);color:#2e2204;font-weight:800;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-radius:999px}
+  .talk-feature h3{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.15;color:var(--green-900);margin:12px 0 14px;letter-spacing:-.02em;font-weight:800}
+  .talk-feature p{color:var(--muted);font-size:1.2rem;margin-bottom:16px}
+  .textlink{font-weight:800;color:var(--green-700);font-size:1.1rem;border-bottom:3px solid var(--amber);padding-bottom:2px;transition:color .15s}
+  .textlink:hover{color:var(--green-900)}
 
   /* Founder */
-  .founder{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
-  .founder-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .founder-photos .photo{aspect-ratio:4/5}
-  .founder-photos .photo:nth-child(2){margin-top:36px}
+  .founder{display:grid;grid-template-columns:1.12fr 1fr;gap:56px;align-items:center}
+  .founder-photos{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .photo{margin:0;border-radius:22px;overflow:hidden;background:var(--green-100);position:relative;box-shadow:0 16px 40px rgba(15,49,37,.16);aspect-ratio:3/4.1}
+  .photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .photo:hover img{transform:scale(1.06)}
+  .photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;font-size:.92rem;font-weight:600;color:#fff;background:linear-gradient(to top,rgba(10,30,22,.82),transparent)}
+  .founder-photos .photo:nth-child(2){margin-top:56px}
   .founder-photos .photo:nth-child(2) img{object-position:62% 50%}
-  .founder h2{font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1.15;color:var(--green-900);margin:12px 0 14px}
-  .founder .bio{color:var(--muted);font-size:1.05rem;margin-bottom:22px}
-  .facts{list-style:none;margin-bottom:26px}
-  .facts li{padding-left:26px;position:relative;margin-bottom:8px;color:var(--ink);font-size:.98rem}
-  .facts li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--amber)}
-  .excerpt{border-left:4px solid var(--amber);padding:4px 0 4px 20px;font-size:1.1rem;line-height:1.5;color:var(--green-900);font-weight:500}
-  .excerpt cite{display:block;margin-top:10px;font-style:normal;font-size:.88rem;color:var(--muted);font-weight:500}
+  .founder .bio{color:var(--muted);font-size:1.3rem;line-height:1.5;margin-bottom:24px}
+  .facts{list-style:none;margin-bottom:30px}
+  .facts li{padding-left:32px;position:relative;margin-bottom:12px;font-size:1.15rem;font-weight:600;color:var(--ink)}
+  .facts li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:14px;border-radius:50%;background:var(--amber)}
+  .excerpt{border-left:5px solid var(--amber);padding:6px 0 6px 24px;font-size:1.3rem;line-height:1.5;color:var(--green-900);font-weight:600}
+  .excerpt cite{display:block;margin-top:12px;font-style:normal;font-size:.95rem;color:var(--muted);font-weight:600}
 
-  /* Talks */
-  .talks{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:stretch}
-  .talk{background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
-  .talk .media{aspect-ratio:16/9;background:#0e1a15;position:relative}
-  .talk .media iframe,.talk .media img{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
-  .talk .media.soon img{filter:brightness(.72)}
-  .talk .media .pill{position:absolute;left:16px;bottom:16px;background:var(--amber);color:#3a2a05;font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
-  .talk .body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:6px;flex:1}
-  .talk h3{font-size:1.2rem;color:var(--green-900)}
-  .talk p{color:var(--muted);font-size:.97rem}
-  .talk .link{margin-top:auto;padding-top:10px;font-weight:600;color:var(--green-700);font-size:.95rem}
-  .talk .link:hover{text-decoration:underline}
+  /* Steps (interactive) */
+  .seed{display:grid;grid-template-columns:.9fr 1.3fr;gap:32px;align-items:stretch}
+  .tabs{display:flex;flex-direction:column;gap:14px}
+  .tab{display:flex;gap:18px;align-items:center;text-align:left;padding:22px 24px;border-radius:20px;border:2px solid var(--line);background:var(--white);transition:transform .2s,box-shadow .2s,border-color .2s,background .2s}
+  .tab .n{flex:none;width:52px;height:52px;border-radius:50%;background:var(--green-100);color:var(--green-700);display:grid;place-items:center;font-size:1.5rem;font-weight:800;transition:background .2s,color .2s}
+  .tab b{display:block;font-size:1.4rem;line-height:1.2;color:var(--green-900);font-weight:800}
+  .tab small{display:block;font-size:1rem;color:var(--muted);margin-top:3px}
+  .tab:hover{transform:translateX(6px);border-color:var(--green-600)}
+  .tab[aria-selected="true"]{background:var(--green-900);border-color:var(--green-900);box-shadow:0 18px 38px rgba(15,49,37,.28);transform:translateX(10px)}
+  .tab[aria-selected="true"] .n{background:var(--amber);color:#2e2204}
+  .tab[aria-selected="true"] b{color:#fff}
+  .tab[aria-selected="true"] small{color:#bcd5c8}
+  .panel-wrap{background:linear-gradient(135deg,var(--green-50),#fdf3de);border:2px solid var(--line);border-radius:26px;padding:36px;display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:center}
+  .grow{width:100%;height:auto;border-radius:22px;overflow:hidden;display:block}
+  .grow .st2,.grow .st3,.grow .rings{opacity:0;transform-origin:120px 200px;transform:scale(.6);transition:opacity .5s,transform .6s cubic-bezier(.2,.9,.3,1.2)}
+  .grow[data-stage="2"] .st2,.grow[data-stage="3"] .st2{opacity:1;transform:scale(1)}
+  .grow[data-stage="3"] .st3,.grow[data-stage="3"] .rings{opacity:1;transform:scale(1)}
+  .panel[hidden]{display:none}
+  .panel{animation:rise .45s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .panel h3{font-size:1.75rem;line-height:1.15;color:var(--green-900);margin-bottom:12px;font-weight:800;letter-spacing:-.01em}
+  .panel p{font-size:1.15rem;color:var(--muted);margin-bottom:16px;line-height:1.55}
+  .eg{background:var(--white);border-left:5px solid var(--amber);border-radius:12px;padding:14px 18px;font-size:1.05rem;color:var(--ink);box-shadow:0 8px 20px rgba(15,49,37,.07)}
+  .eg b{color:var(--green-700);display:block;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin:2px 0 16px}
+  .chip{background:var(--white);color:var(--green-900);padding:8px 15px;border-radius:999px;font-weight:700;font-size:.98rem;border:1.5px solid var(--green-600);transition:transform .15s,background .15s,color .15s}
+  .chip:hover{background:var(--green-600);color:#fff;transform:translateY(-3px)}
+
+  /* Problem cards (hover reveal) */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .card{background:var(--white);border:1.5px solid var(--line);border-radius:var(--radius);padding:34px 30px;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
+  .card:hover,.card:focus-within{transform:translateY(-8px);box-shadow:0 22px 46px rgba(15,49,37,.14);border-color:var(--green-600)}
+  .icon{width:60px;height:60px;border-radius:16px;background:var(--green-100);display:grid;place-items:center;margin-bottom:22px;transition:background .25s,transform .25s}
+  .card:hover .icon{background:var(--amber);transform:rotate(-6deg) scale(1.06)}
+  .icon svg{width:32px;height:32px}
+  .card h3{font-size:1.5rem;color:var(--green-900);margin-bottom:10px;font-weight:800;line-height:1.2}
+  .card p{color:var(--muted);font-size:1.1rem}
+  .vs{display:grid;gap:8px;margin-top:0;max-height:0;opacity:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease,margin-top .3s}
+  .card:hover .vs,.card:focus-within .vs,.card.open .vs{max-height:200px;opacity:1;margin-top:20px}
+  .vs div{font-size:1rem;padding:10px 14px;border-radius:12px;line-height:1.35}
+  .vs .good{background:var(--green-100);color:var(--green-900)}
+  .vs .bad{background:#fdebd0;color:#4a3205}
+  .vs b{font-weight:800}
+  .hint{display:block;margin-top:16px;font-size:.88rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green-600)}
+  .card:hover .hint,.card.open .hint{display:none}
+  .card .tag{margin-top:18px}
+
+  /* Where it grows */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 
   /* Speaking */
-  .speak{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
-  .speak .photo{aspect-ratio:3/2}
-  .speak h2{font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1.15;color:var(--green-900);margin-bottom:14px}
-  .speak p{color:var(--muted);font-size:1.05rem;margin-bottom:12px}
-  .speak .cta{margin-top:20px}
+  .speak{background:linear-gradient(135deg,var(--green-800),var(--green-900));color:#fff;border-radius:32px;padding:64px 56px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;box-shadow:0 30px 60px rgba(15,49,37,.25)}
+  .speak h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:14px;font-weight:800}
+  .speak p{color:#cfe3d8;font-size:1.25rem;line-height:1.5}
+  .speak .side{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
 
-  .paper{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:44px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
-  .paper h3{font-size:1.5rem;line-height:1.25;color:var(--green-900);margin:10px 0 14px}
-  .paper .authors{color:var(--muted);font-size:.95rem;margin-bottom:6px}
-  .paper .affil{color:var(--muted);font-size:.85rem}
-  .paper .abs p{color:var(--ink);margin-bottom:16px}
-  .paper .abs ul{list-style:none;margin:0}
-  .paper .abs li{padding-left:26px;position:relative;margin-bottom:10px;color:var(--muted);font-size:.97rem}
-  .paper .abs li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--amber)}
+  /* Research / preview */
+  .paper{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center}
+  .preview{display:block;position:relative;perspective:1200px;max-width:440px;margin:0 auto}
+  .preview .sheet{display:block;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 30px 60px rgba(15,49,37,.28),0 0 0 1px var(--line);transform:rotate(-2.5deg);transition:transform .45s cubic-bezier(.2,.9,.3,1.2),box-shadow .45s}
+  .preview::before{content:"";position:absolute;inset:14px -14px -14px 14px;background:#fff;border-radius:10px;box-shadow:0 0 0 1px var(--line);transform:rotate(2deg);z-index:0}
+  .preview .sheet{position:relative;z-index:1}
+  .preview:hover .sheet{transform:rotate(0) translateY(-8px) scale(1.03);box-shadow:0 40px 80px rgba(15,49,37,.32),0 0 0 1px var(--line)}
+  .preview img{width:100%;height:auto}
+  .preview .open{position:absolute;z-index:2;left:50%;bottom:22px;transform:translateX(-50%) translateY(10px);opacity:0;background:var(--green-900);color:#fff;font-weight:800;padding:12px 22px;border-radius:999px;white-space:nowrap;transition:opacity .3s,transform .3s;box-shadow:0 12px 26px rgba(0,0,0,.3)}
+  .preview:hover .open,.preview:focus-visible .open{opacity:1;transform:translateX(-50%)}
+  .paper h3{font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.2;color:var(--green-900);margin:14px 0 16px;font-weight:800;letter-spacing:-.015em}
+  .authors{color:var(--ink);font-size:1.15rem;font-weight:700;margin-bottom:6px}
+  .affil{color:var(--muted);font-size:1rem;line-height:1.5}
+  .abs{margin-top:26px}
+  .abs p{font-size:1.2rem;color:var(--ink);margin-bottom:16px;line-height:1.55}
+  .abs ul{list-style:none;margin:0 0 28px}
+  .abs li{padding-left:32px;position:relative;margin-bottom:12px;color:var(--muted);font-size:1.1rem}
+  .abs li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:14px;border-radius:50%;background:var(--amber)}
 
-  .contact{text-align:center}
-  .contact-box{background:linear-gradient(135deg,var(--green-100),#fdf3de);border:1px solid var(--line);border-radius:24px;padding:64px 24px}
-  .contact h2{font-size:clamp(1.7rem,3.2vw,2.3rem);color:var(--green-900);margin-bottom:12px}
-  .contact p{color:var(--muted);max-width:560px;margin:0 auto 28px}
+  .contact{text-align:center;padding-top:40px}
+  .contact-box{background:linear-gradient(135deg,var(--green-100),#fdf3de);border:1.5px solid var(--line);border-radius:30px;padding:72px 28px}
+  .contact h2{font-size:clamp(2.1rem,4.4vw,3.2rem);line-height:1.1;color:var(--green-900);margin-bottom:14px;font-weight:800;letter-spacing:-.025em}
+  .contact p{color:var(--muted);max-width:660px;margin:0 auto 32px;font-size:1.25rem}
+  .emails{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .emails .btn small{display:block;font-weight:600;font-size:.82rem;opacity:.85;letter-spacing:.02em}
 
-  footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+  footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted);font-size:1rem}
   .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-  @media (max-width:900px){
-    .hero-grid,.paper,.founder,.talks,.speak{grid-template-columns:1fr}
-    .cards,.steps{grid-template-columns:1fr}
-    .step::after{display:none}
+  @media (max-width:980px){
+    .hero-grid,.talk-feature,.talk-feature.flip,.founder,.seed,.paper,.speak,.reach{grid-template-columns:1fr}
+    .talk-feature.flip .media{order:0}
+    .cards,.grid3{grid-template-columns:1fr}
+    .quick-grid{grid-template-columns:1fr 1fr}
     .nav ul{display:none}
-    .hero{padding:48px 0}
-    section{padding:60px 0}
-    .paper{padding:28px}
-    .hero-art{max-width:420px;margin:0 auto}
-    .founder{gap:36px}
-    .speak{gap:32px}
+    .hero{padding:40px 0 36px}
+    section{padding:64px 0}
+    .collage .inset{left:-8px;width:50%}
+    .collage .chip{right:-4px}
+    .founder{gap:40px}
+    .panel-wrap{grid-template-columns:1fr;padding:26px}
+    .grow{max-width:220px;margin:0 auto}
+    .speak{padding:40px 28px}
+    .paper{gap:48px}
+    .tab:hover,.tab[aria-selected="true"]{transform:none}
+    .vs{max-height:200px;opacity:1;margin-top:20px}
+    .hint{display:none}
   }
-  @media (max-width:520px){
-    .stats{grid-template-columns:1fr}
+  @media (max-width:560px){
+    .nav{height:66px}
+    .brand{font-size:1rem;white-space:nowrap;gap:8px}
+    .brand svg{width:28px;height:28px}
+    .nav > .btn{padding:10px 16px;font-size:.92rem;white-space:nowrap}
+    h1{font-size:2.5rem}
+    .collage{padding-bottom:52px}
+    .collage .inset{width:46%;left:-6px}
+    .collage .chip{padding:10px 14px;right:0;bottom:6px}
+    .collage .chip b{font-size:1.45rem}
+    .collage .chip span{font-size:.8rem}
+    .quick-grid{grid-template-columns:1fr}
+    .bar{grid-template-columns:1fr auto;grid-template-areas:"l v" "t t"}
+    .bar .b-label{grid-area:l}.bar .b-val{grid-area:v}.bar .b-track{grid-area:t}
+    .rcard{padding:28px 22px 24px}
+    .founder-photos .photo:nth-child(2){margin-top:24px}
+    .btn{padding:14px 22px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+    html{scroll-behavior:auto}
   }
 </style>
 </head>
@@ -163,12 +273,12 @@
       <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#2f6b4f"/><path d="M32 50V30" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M32 32C32 22 24 16 14 16c0 10 6 16 18 16z" fill="#fff"/><path d="M32 28c0-8 6-13 16-13 0 9-5 13-16 13z" fill="#f2b84b"/></svg>
       SEED Amplifiers
     </a>
-    <nav>
+    <nav aria-label="Main">
       <ul>
-        <li><a href="#why">The problem</a></li>
-        <li><a href="#how">How it works</a></li>
-        <li><a href="#nate">Nate</a></li>
+        <li><a href="#reach">Our reach</a></li>
         <li><a href="#talks">Talks</a></li>
+        <li><a href="#founder">Founder</a></li>
+        <li><a href="#how">How it works</a></li>
         <li><a href="#research">Research</a></li>
       </ul>
     </nav>
@@ -191,102 +301,243 @@
         </div>
       </div>
 
-      <svg class="hero-art" viewBox="0 0 480 440" role="img" aria-label="A seedling sending out expanding rings, representing growth and amplification">
-        <defs>
-          <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6f0ea"/><stop offset="1" stop-color="#fdf3de"/></linearGradient>
-          <linearGradient id="leafA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3f8a67"/><stop offset="1" stop-color="#1f5a41"/></linearGradient>
-          <linearGradient id="leafB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7cf7a"/><stop offset="1" stop-color="#e9a83a"/></linearGradient>
-        </defs>
-        <rect x="10" y="10" width="460" height="420" rx="32" fill="url(#sky)"/>
-        <g fill="none" stroke="#2f6b4f" stroke-linecap="round">
-          <circle cx="240" cy="230" r="70"  stroke-opacity=".35" stroke-width="2.5"/>
-          <circle cx="240" cy="230" r="115" stroke-opacity=".25" stroke-width="2.5"/>
-          <circle cx="240" cy="230" r="160" stroke-opacity=".15" stroke-width="2.5"/>
-          <circle cx="240" cy="230" r="205" stroke-opacity=".08" stroke-width="2.5"/>
-        </g>
-        <path d="M120 372c30-34 90-46 120-46s90 12 120 46v18H120z" fill="#12372a"/>
-        <path d="M150 372c26-22 62-30 90-30s64 8 90 30" fill="none" stroke="#1f5a41" stroke-width="3" stroke-linecap="round"/>
-        <path d="M240 336c0-40 2-80-2-120" stroke="#1f5a41" stroke-width="9" stroke-linecap="round" fill="none"/>
-        <path d="M238 232C238 160 180 118 108 120c0 72 46 116 130 112z" fill="url(#leafA)"/>
-        <path d="M238 216c-2-62 44-100 112-98-2 68-40 100-112 98z" fill="url(#leafB)"/>
-        <path d="M238 232c-30-28-62-52-108-96" stroke="#e6f0ea" stroke-width="3" stroke-linecap="round" fill="none" opacity=".7"/>
-        <path d="M238 216c26-22 56-50 92-86" stroke="#fff8e8" stroke-width="3" stroke-linecap="round" fill="none" opacity=".8"/>
-        <g fill="#f2b84b"><circle cx="92" cy="86" r="5"/><circle cx="392" cy="96" r="6"/><circle cx="410" cy="300" r="4"/><circle cx="70" cy="290" r="4"/></g>
-      </svg>
-    </div>
-  </div>
-
-  <!-- REACH -->
-  <div class="stats-band" id="reach">
-    <div class="wrap">
-      <div class="stats">
-        <div class="stat"><span class="num" data-count="100000" data-suffix="+">100,000+</span><span class="cap">Online views</span></div>
-        <div class="stat"><span class="num" data-count="1000" data-suffix="+">1,000+</span><span class="cap">People in the room</span></div>
+      <div class="collage">
+        <div class="main">
+          <img src="assets/nate-tedx-stage.jpg" alt="Nate Roy speaking on the TEDx stage in a light blue suit">
+        </div>
+        <span class="tagline">TEDx &middot; Filmed Sept 18, 2026</span>
+        <div class="inset">
+          <img src="assets/nate-speaking-students.jpg" alt="Nate Roy speaking with a gym full of students">
+        </div>
+        <div class="chip"><b>100,000+</b><span>online views</span></div>
       </div>
     </div>
   </div>
 
-  <!-- THE PROBLEM -->
-  <section id="why">
+  <!-- QUICK LINKS -->
+  <div class="quick">
+    <div class="wrap quick-grid">
+      <a class="qlink" href="https://youtu.be/0JmkDyIbEZw" target="_blank" rel="noopener">
+        <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="#164633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z" fill="#164633"/></svg></span>
+        <span><b>Watch the TEDx talk</b><small>100,000+ views</small></span>
+      </a>
+      <a class="qlink" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7045858" target="_blank" rel="noopener">
+        <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="#164633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+        <span><b>Read the preprint</b><small>Published on SSRN</small></span>
+      </a>
+      <a class="qlink" href="#founder">
+        <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="#164633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+        <span><b>Meet the founder</b><small>Nate Roy</small></span>
+      </a>
+      <a class="qlink" href="mailto:nate@seedresilience.io?subject=Speaking%20inquiry">
+        <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="#164633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+        <span><b>Book Nate to speak</b><small>Schools, teams, conferences</small></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- REACH: interactive chart -->
+  <div class="reach-band" id="reach">
     <div class="wrap">
       <div class="section-head">
-        <h2>Why most wellness programs miss</h2>
-        <p>School-based wellness programs often produce mixed results, and sometimes cause harm. Our research argues the ideas inside them are not the problem. The way they are delivered is. In therapy, people choose what to change, where, and with whom. Universal programs choose all three for them.</p>
+        <h2>What we've done so far</h2>
+        <p>SEED is just getting started, and it is already reaching people online and in the room. Hover or tap a bar to see where the numbers come from.</p>
       </div>
-      <div class="cards">
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
-          </div>
-          <h3>An imposed goal</h3>
-          <p>When the change isn't self-chosen, it can clash with how a young person sees themselves. The brain can reject what doesn't fit who they think they are.</p>
+      <div class="reach" id="reachCharts">
+
+        <div class="rcard" data-default="Hover or tap a bar to see the detail behind the number.">
+          <span class="num" data-count="100000" data-suffix="+">100,000+</span>
+          <span class="cap">Online views</span>
+          <ul class="bars">
+            <li class="bar" tabindex="0" data-tip="<b>TEDx talk on YouTube.</b> Nate's first TEDx talk has been watched more than 100,000 times.">
+              <span class="b-label">TEDx talk on YouTube</span><span class="b-track"><span class="b-fill" style="--w:100%"></span></span><span class="b-val">100,000+</span>
+            </li>
+            <li class="bar" tabindex="0" data-tip="<b>Instagram.</b> Personal Instagram content has each passed 1,000. Small next to the talk, and growing.">
+              <span class="b-label">Instagram</span><span class="b-track"><span class="b-fill" style="--w:6%"></span></span><span class="b-val">1,000+ each</span>
+            </li>
+          </ul>
+          <div class="readout" aria-live="polite">Hover or tap a bar to see the detail behind the number.</div>
         </div>
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg>
-          </div>
-          <h3>An imposed setting</h3>
-          <p>Learning scales with how meaningful an experience feels. A program with no connection to what a teen cares about often lacks the weight to change anything.</p>
+
+        <div class="rcard" data-default="Hover or tap a bar to see the detail behind the number.">
+          <span class="num" data-count="1000" data-suffix="+">1,000+</span>
+          <span class="cap">People in the room</span>
+          <ul class="bars">
+            <li class="bar" tabindex="0" data-tip="<b>TEDx Riverfield.</b> Roughly 800 people in the audience for Nate's talk.">
+              <span class="b-label">TEDx Riverfield</span><span class="b-track"><span class="b-fill" style="--w:100%"></span></span><span class="b-val">~800</span>
+            </li>
+            <li class="bar" tabindex="0" data-tip="<b>Other talks and events.</b> A few more speaking engagements add roughly 200 more people.">
+              <span class="b-label">Other talks</span><span class="b-track"><span class="b-fill" style="--w:25%"></span></span><span class="b-val">~200+</span>
+            </li>
+          </ul>
+          <div class="readout" aria-live="polite">Hover or tap a bar to see the detail behind the number.</div>
         </div>
-        <div class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
-          </div>
-          <h3>An imposed relationship</h3>
-          <p>A clinician is someone you seek out. A guest facilitator is someone you were handed. Without that voluntary trust, kids disengage or quietly resist.</p>
+
+      </div>
+      <p class="reach-note">In-person figures are estimates. Online views count the YouTube talk and Instagram.</p>
+    </div>
+  </div>
+
+  <!-- TALKS (big) -->
+  <section id="talks">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Nate on stage</h2>
+        <p>Two TEDx talks, and a growing list of rooms. SEED travels best when people can hear it in person.</p>
+      </div>
+
+      <div class="talk-feature">
+        <div class="media">
+          <iframe src="https://www.youtube-nocookie.com/embed/0JmkDyIbEZw" title="Nate Roy, TEDx talk" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div>
+          <span class="tag">Talk one &middot; Now streaming</span>
+          <h3>Nate's first TEDx talk</h3>
+          <p>More than 100,000 views, and the starting point for everything SEED.</p>
+          <a class="textlink" href="https://youtu.be/0JmkDyIbEZw" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+        </div>
+      </div>
+
+      <div class="talk-feature flip" style="margin-bottom:0">
+        <div class="media soon">
+          <img src="assets/nate-tedx-stage.jpg" alt="Nate Roy speaking on the TEDx stage in a light blue suit" loading="lazy">
+          <span class="pill">Coming soon</span>
+        </div>
+        <div>
+          <span class="tag">Talk two &middot; Filmed Sept 18, 2026</span>
+          <h3>What if the adventure was the intervention?</h3>
+          <p>The full SEED idea, in Nate's words. Filmed in September and headed to YouTube soon.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section id="how" class="alt">
+  <!-- FOUNDER -->
+  <section id="founder" class="alt">
+    <div class="wrap founder">
+      <div class="founder-photos">
+        <figure class="photo">
+          <img src="assets/nate-bobsled.jpg" alt="Nate Roy pushing a bobsled at a Team USA training facility" loading="lazy">
+          <figcaption>Training with Team USA Bobsled</figcaption>
+        </figure>
+        <figure class="photo">
+          <img src="assets/nate-white-coat.jpg" alt="Nate Roy putting on his white coat at the Weill Cornell Medicine white coat ceremony" loading="lazy">
+          <figcaption>White coat ceremony, Weill Cornell Medicine</figcaption>
+        </figure>
+      </div>
+      <div>
+        <span class="tag">The founder</span>
+        <h2 class="h2" style="margin-top:14px">Nate Roy</h2>
+        <p class="bio">Nate developed the SEED framework from two places that rarely meet: elite sport and the science of the adolescent brain.</p>
+        <ul class="facts">
+          <li>Athlete with Team USA Bobsled</li>
+          <li>Medical student at Weill Cornell, pursuing child and adolescent psychiatry</li>
+          <li>Founder of Cortex Flex Inc., mental and physical resilience training for teen athletes</li>
+          <li>Co-founder of CAPSuLe, a nonprofit sharing child and adolescent development research with the public</li>
+        </ul>
+        <blockquote class="excerpt">&ldquo;The brain resists learning that is irrelevant to the adventure in which we find our identity. When learning is embedded in a journey that already matters to a person, acquisition happens by nature.&rdquo;
+          <cite>Nate Roy, from his September 2026 TEDx talk</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (interactive) -->
+  <section id="how">
     <div class="wrap">
       <div class="section-head">
         <h2>Plant a SEED in three steps</h2>
-        <p>Instead of adding a mental health program, we attach resilience training to a journey a group is already on. Anyone can do it, in any room.</p>
+        <p>Instead of adding a mental health program, attach resilience training to a journey a group is already on. Pick a step to watch it grow.</p>
       </div>
-      <div class="steps">
-        <div class="step">
-          <h3>Find the expedition</h3>
-          <p>Discover the goal your group is already chasing, like a faster 40-yard dash or a higher SAT score. If there isn't one, build an adventure the whole group can own.</p>
+
+      <div class="seed" id="seed">
+        <div class="tabs" role="tablist" aria-label="Three steps of SEED">
+          <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true" data-stage="1"><span class="n">1</span><span><b>Find the expedition</b><small>Start with the goal they already have</small></span></button>
+          <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1" data-stage="2"><span class="n">2</span><span><b>Choose the assets</b><small>Pick the strengths to grow</small></span></button>
+          <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1" data-stage="3"><span class="n">3</span><span><b>Plant the SEEDs</b><small>Weave them into the real work</small></span></button>
         </div>
-        <div class="step">
-          <h3>Choose the assets</h3>
-          <p>Decide which strengths you want to grow. The ideas are not new. What changes is how they are delivered.</p>
-        </div>
-        <div class="step">
-          <h3>Plant the SEEDs</h3>
-          <p>Work the exercises into the thinking, training, planning, and performing moments kids already care about, where the skills are picked up fastest.</p>
+
+        <div class="panel-wrap">
+          <svg class="grow" id="grow" data-stage="1" viewBox="0 0 240 240" role="img" aria-label="A plant that grows from a seed to a full seedling as you move through the steps">
+            <defs>
+              <linearGradient id="g-sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6f0ea"/><stop offset="1" stop-color="#fdf3de"/></linearGradient>
+              <linearGradient id="g-leafA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3f8a67"/><stop offset="1" stop-color="#1f5a41"/></linearGradient>
+              <linearGradient id="g-leafB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7cf7a"/><stop offset="1" stop-color="#e9a83a"/></linearGradient>
+            </defs>
+            <rect width="240" height="240" rx="28" fill="url(#g-sky)"/>
+            <g class="rings" fill="none" stroke="#2f6b4f" stroke-opacity=".28" stroke-width="2.5">
+              <circle cx="120" cy="140" r="46"/><circle cx="120" cy="140" r="76"/><circle cx="120" cy="140" r="106"/>
+            </g>
+            <path d="M30 212c28-30 66-38 90-38s62 8 90 38v28H30z" fill="#0f3125"/>
+            <g class="st1"><ellipse cx="120" cy="186" rx="10" ry="6.5" fill="#f2b84b"/></g>
+            <g class="st2"><path d="M120 186V152" stroke="#1f5a41" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M120 162c0-16-12-26-30-26 0 16 11 26 30 26z" fill="url(#g-leafA)"/></g>
+            <g class="st3"><path d="M120 152V96" stroke="#1f5a41" stroke-width="7" stroke-linecap="round" fill="none"/><path d="M120 108C120 68 90 46 50 48c0 40 26 62 70 60z" fill="url(#g-leafA)"/><path d="M120 98c-1-34 24-54 62-52-1 38-22 54-62 52z" fill="url(#g-leafB)"/></g>
+          </svg>
+
+          <div>
+            <div class="panel" id="p1" role="tabpanel" aria-labelledby="t1">
+              <h3>Find the expedition</h3>
+              <p>Discover the goal your group is already chasing, like a faster 40-yard dash for football players or a higher SAT score for test preppers. If nothing unites the group yet, curate an adventure the whole group can take ownership of.</p>
+              <div class="eg"><b>Nate's own SEED</b>His expedition was holding a lunge for eight straight minutes on stage.</div>
+            </div>
+            <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+              <h3>Choose the assets</h3>
+              <p>Decide which mental wellness strengths to embed. The information on these is everywhere. The delivery is what changes.</p>
+              <div class="chips">
+                <span class="chip">Growth mindset</span>
+                <span class="chip">Emotional vulnerability</span>
+                <span class="chip">Intrinsic motivation</span>
+                <span class="chip">Self-image confidence</span>
+                <span class="chip">Identity clarity</span>
+              </div>
+              <div class="eg"><b>Nate's own SEED</b>He grew motivation, staying present, and handling performance anxiety.</div>
+            </div>
+            <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+              <h3>Plant the SEEDs</h3>
+              <p>Bring the exercises into the thinking, training, planning, preparing, and performing moments kids already care about. That is where brains pick up adversity strategies, reframing techniques, and emotional response patterns that stand-alone mental health programs often fail to teach.</p>
+              <div class="eg"><b>Nate's own SEED</b>A bonus: he learned a ton about suits, a topic his brain would once have called irrelevant.</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="chips">
-        <div class="lbl">Assets we embed</div>
-        <span class="chip">Growth mindset</span>
-        <span class="chip">Emotional vulnerability</span>
-        <span class="chip">Intrinsic motivation</span>
-        <span class="chip">Self-image confidence</span>
-        <span class="chip">Identity clarity</span>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM (hover reveal) -->
+  <section id="why" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Why most wellness programs miss</h2>
+        <p>School-based wellness programs often produce mixed results, and sometimes cause harm. Our research argues the ideas inside them are not the problem. The way they are delivered is. Hover over a card to compare the clinic with the classroom.</p>
+      </div>
+      <div class="cards">
+        <div class="card" tabindex="0">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+          </div>
+          <h3>An imposed goal</h3>
+          <p>When the change isn't self-chosen, it can clash with how a young person sees themselves. The brain can reject what doesn't fit who they think they are.</p>
+          <div class="vs"><div class="good"><b>In the clinic:</b> you choose what to work on.</div><div class="bad"><b>In a universal program:</b> someone else decides.</div></div>
+          <span class="hint">Hover to compare</span>
+        </div>
+        <div class="card" tabindex="0">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg>
+          </div>
+          <h3>An imposed setting</h3>
+          <p>Learning scales with how meaningful an experience feels. A program with no connection to what a teen cares about often lacks the weight to change anything.</p>
+          <div class="vs"><div class="good"><b>In the clinic:</b> you walk in because it matters to you.</div><div class="bad"><b>In a universal program:</b> you are required to be there.</div></div>
+          <span class="hint">Hover to compare</span>
+        </div>
+        <div class="card" tabindex="0">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
+          </div>
+          <h3>An imposed relationship</h3>
+          <p>A clinician is someone you seek out. A guest facilitator is someone you were handed. Without that voluntary trust, kids disengage or quietly resist.</p>
+          <div class="vs"><div class="good"><b>In the clinic:</b> you seek out the clinician.</div><div class="bad"><b>In a universal program:</b> the facilitator is assigned.</div></div>
+          <span class="hint">Hover to compare</span>
+        </div>
       </div>
     </div>
   </section>
@@ -298,7 +549,7 @@
         <h2>Where SEEDs grow</h2>
         <p>The soil is everywhere. Here is where we are planting first.</p>
       </div>
-      <div class="cards">
+      <div class="grid3">
         <div class="card">
           <div class="icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
@@ -327,108 +578,48 @@
     </div>
   </section>
 
-  <!-- FOUNDER -->
-  <section id="nate" class="alt">
-    <div class="wrap founder">
-      <div class="founder-photos">
-        <figure class="photo">
-          <img src="assets/nate-bobsled.jpg" alt="Nate Roy pushing a bobsled at a Team USA training facility" loading="lazy">
-          <figcaption>Training with Team USA Bobsled</figcaption>
-        </figure>
-        <figure class="photo">
-          <img src="assets/nate-white-coat.jpg" alt="Nate Roy putting on his white coat at the Weill Cornell Medicine white coat ceremony" loading="lazy">
-          <figcaption>White coat ceremony, Weill Cornell Medicine</figcaption>
-        </figure>
-      </div>
-      <div>
-        <span class="tag">The founder</span>
-        <h2>Nate Roy</h2>
-        <p class="bio">Nate developed the SEED framework from two places that rarely meet: elite sport and the science of the adolescent brain.</p>
-        <ul class="facts">
-          <li>Athlete with Team USA Bobsled</li>
-          <li>Medical student at Weill Cornell, pursuing child and adolescent psychiatry</li>
-          <li>Founder of Cortex Flex Inc., mental and physical resilience training for teen athletes</li>
-          <li>Co-founder of CAPSuLe, a nonprofit sharing child and adolescent development research with the public</li>
-        </ul>
-        <blockquote class="excerpt">&ldquo;The brain resists learning that is irrelevant to the adventure in which we find our identity. When learning is embedded in a journey that already matters to a person, acquisition happens by nature.&rdquo;
-          <cite>Nate Roy, from his September 2026 TEDx talk</cite>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- TALKS -->
-  <section id="talks">
+  <!-- SPEAKING CTA -->
+  <section style="padding-top:0">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Nate on stage</h2>
-        <p>Two TEDx talks, and a growing list of rooms. SEED travels best when people can hear it in person.</p>
-      </div>
-      <div class="talks">
-        <article class="talk">
-          <div class="media">
-            <iframe src="https://www.youtube-nocookie.com/embed/0JmkDyIbEZw" title="Nate Roy, TEDx talk" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <div class="body">
-            <h3>Talk one: now streaming</h3>
-            <p>Nate's first TEDx talk, with more than 100,000 views.</p>
-            <a class="link" href="https://youtu.be/0JmkDyIbEZw" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
-          </div>
-        </article>
-        <article class="talk">
-          <div class="media soon">
-            <img src="assets/nate-tedx-stage.jpg" alt="Nate Roy speaking on the TEDx stage in a light blue suit" loading="lazy">
-            <span class="pill">Coming soon</span>
-          </div>
-          <div class="body">
-            <h3>Talk two: What if the adventure was the intervention?</h3>
-            <p>Filmed September 18, 2026. The full SEED idea, in Nate's words. Coming soon to YouTube.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPEAKING -->
-  <section class="alt" id="speaking">
-    <div class="wrap speak">
-      <figure class="photo">
-        <img src="assets/nate-speaking-students.jpg" alt="Nate Roy speaking with a gym full of students" loading="lazy">
-      </figure>
-      <div>
-        <span class="tag">Speaking</span>
-        <h2 style="margin-top:12px">Bring SEED to your room</h2>
-        <p>Nate speaks at schools, teams, clubs, and conferences about how to plant SEEDs in the groups people already lead.</p>
-        <p>If you coach, teach, or run a program, he can show you how to start.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="mailto:hello@seedresilience.io?subject=Speaking%20inquiry">Book Nate</a>
+      <div class="speak">
+        <div>
+          <h2>Bring SEED to your room</h2>
+          <p>Nate speaks at schools, teams, clubs, and conferences about how to plant SEEDs in the groups people already lead.</p>
+        </div>
+        <div class="side">
+          <a class="btn btn-amber" href="mailto:nate@seedresilience.io?subject=Speaking%20inquiry">Book Nate</a>
+          <a class="textlink" style="color:#fff;border-color:var(--amber)" href="#talks">Watch him first &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- RESEARCH -->
-  <section id="research">
+  <section id="research" class="alt">
     <div class="wrap">
       <div class="section-head">
         <h2>The research behind SEED</h2>
         <p>SEED is grounded in clinical and developmental science, and we are putting it up for scrutiny.</p>
       </div>
       <div class="paper">
+        <a class="preview" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7045858" target="_blank" rel="noopener" aria-label="Open the preprint on SSRN">
+          <span class="sheet"><img src="assets/preprint-page-1.jpg" alt="First page of the preprint, showing the title, authors, affiliations, and abstract" loading="lazy"></span>
+          <span class="open">Read the full preprint &rarr;</span>
+        </a>
         <div>
           <span class="tag">Preprint</span>
           <h3>Reconceptualizing Universal Mental Health as Salience-Embedded Experiential Development in Adolescence</h3>
           <p class="authors">Nate Roy, Keton Johnson, Kevin Wisniewski</p>
           <p class="affil">Weill Cornell Medical College &middot; Seattle Pacific University &middot; Child &amp; Adolescent Performance Science Laboratory Inc. &middot; Lake Erie College of Osteopathic Medicine</p>
-          <p style="margin-top:28px"><a class="btn btn-primary" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7045858" target="_blank" rel="noopener">Read the preprint</a></p>
-        </div>
-        <div class="abs">
-          <p>Universal school-based wellness programs often produce inconsistent results. We argue the cause is a mismatch between clinical and universal settings, not flawed therapeutic methods.</p>
-          <ul>
-            <li>Clinics give people agency over the change, the context, and the relationship. Universal programs impose all three.</li>
-            <li>That creates identity friction and lowers salience, the sense that something matters.</li>
-            <li>Embedding resilience training in goals, settings, and relationships adolescents already chose is a strengths-based path that may improve engagement and safety.</li>
-          </ul>
+          <div class="abs">
+            <p>Universal school-based wellness programs often produce inconsistent results. We argue the cause is a mismatch between clinical and universal settings, not flawed therapeutic methods.</p>
+            <ul>
+              <li>Clinics give people agency over the change, the context, and the relationship. Universal programs impose all three.</li>
+              <li>That creates identity friction and lowers salience, the sense that something matters.</li>
+              <li>Embedding resilience training in goals, settings, and relationships adolescents already chose is a strengths-based path that may improve engagement and safety.</li>
+            </ul>
+            <a class="btn btn-primary" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7045858" target="_blank" rel="noopener">Read the preprint</a>
+          </div>
         </div>
       </div>
     </div>
@@ -440,7 +631,10 @@
       <div class="contact-box">
         <h2>Let's plant something together</h2>
         <p>Coach, teacher, program leader, or researcher: tell us about the adventure your group is already on, or ask about booking Nate to speak.</p>
-        <a class="btn btn-primary" href="mailto:hello@seedresilience.io">hello@seedresilience.io</a>
+        <div class="emails">
+          <a class="btn btn-primary" href="mailto:nate@seedresilience.io"><small>Speaking &amp; talks</small>nate@seedresilience.io</a>
+          <a class="btn btn-ghost" href="mailto:keton@seedresilience.io"><small>Everything else</small>keton@seedresilience.io</a>
+        </div>
       </div>
     </div>
   </section>
@@ -456,27 +650,80 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Count-up for the big numbers (falls back to the static text if anything is unsupported).
+  // 1) Reach chart: animate on scroll, count up, and show details on hover / focus / tap.
   (function(){
-    var els = document.querySelectorAll('.num[data-count]');
-    if(!els.length || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(!en.isIntersecting) return;
-        var el = en.target, end = Number(el.dataset.count), suf = el.dataset.suffix || '', t0 = null;
-        function tick(ts){
-          if(t0===null) t0 = ts;
-          var p = Math.min((ts - t0) / 1400, 1), eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(end * eased).toLocaleString() + suf;
-          if(p < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-        io.unobserve(el);
+    var cards = document.querySelectorAll('.rcard');
+    function countUp(el){
+      var end = Number(el.dataset.count), suf = el.dataset.suffix || '', t0 = null;
+      function tick(ts){
+        if(t0===null) t0 = ts;
+        var p = Math.min((ts - t0) / 1400, 1), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(end * e).toLocaleString() + suf;
+        if(p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(!en.isIntersecting) return;
+          en.target.classList.add('in');
+          var n = en.target.querySelector('.num[data-count]');
+          if(n && !reduce) countUp(n);
+          io.unobserve(en.target);
+        });
+      }, {threshold:.35});
+      cards.forEach(function(c){ io.observe(c); });
+    } else { cards.forEach(function(c){ c.classList.add('in'); }); }
+
+    cards.forEach(function(card){
+      var readout = card.querySelector('.readout'), def = card.dataset.default;
+      function show(bar){
+        card.querySelectorAll('.bar').forEach(function(b){ b.classList.toggle('on', b === bar); });
+        readout.innerHTML = bar ? bar.dataset.tip : def;
+      }
+      card.querySelectorAll('.bar').forEach(function(bar){
+        bar.addEventListener('mouseenter', function(){ show(bar); });
+        bar.addEventListener('focus', function(){ show(bar); });
+        bar.addEventListener('click', function(){ show(bar); });
       });
-    }, {threshold:.4});
-    els.forEach(function(e){ io.observe(e); });
+      card.addEventListener('mouseleave', function(){ show(null); });
+    });
   })();
+
+  // 2) Three steps: tabs (click, hover, or arrow keys) with a plant that grows.
+  (function(){
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('#seed .tab'));
+    var grow = document.getElementById('grow');
+    function select(tab, focus){
+      tabs.forEach(function(t){
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      grow.setAttribute('data-stage', tab.dataset.stage);
+      if(focus) tab.focus();
+    }
+    var canHover = window.matchMedia('(hover: hover)').matches;
+    tabs.forEach(function(t, i){
+      t.addEventListener('click', function(){ select(t); });
+      if(canHover) t.addEventListener('mouseenter', function(){ select(t); });
+      t.addEventListener('keydown', function(e){
+        var k = e.key, j = null;
+        if(k === 'ArrowDown' || k === 'ArrowRight') j = (i + 1) % tabs.length;
+        if(k === 'ArrowUp' || k === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+        if(j !== null){ e.preventDefault(); select(tabs[j], true); }
+      });
+    });
+  })();
+
+  // 3) Problem cards: tap to compare on touch devices (hover/focus handle desktop).
+  document.querySelectorAll('.card[tabindex]').forEach(function(c){
+    c.addEventListener('click', function(){ c.classList.toggle('open'); });
+  });
 </script>
 </body>
 </html>
