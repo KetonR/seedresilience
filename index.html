@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SEED Amplifiers | What if the adventure was the intervention?</title>
-<meta name="description" content="SEED embeds resilience training inside the goals young people already care about, so the skills stick because they matter.">
+<meta name="description" content="SEED embeds resilience training inside the goals people already care about, so the skills stick because they matter.">
 <meta property="og:title" content="SEED Amplifiers">
 <meta property="og:description" content="What if the adventure was the intervention?">
 <meta property="og:type" content="website">
@@ -167,6 +167,43 @@
   .card:hover .hint,.card.open .hint{display:none}
   .card .tag{margin-top:18px}
 
+
+  /* Offers */
+  section{scroll-margin-top:80px}
+  .reach-band{scroll-margin-top:80px}
+  .offers{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .offer{display:flex;flex-direction:column}
+  .offer p{margin-bottom:24px}
+  .offer .btn{margin-top:auto;align-self:stretch;text-align:center;font-size:1rem;padding:15px 22px;border-radius:18px}
+  .formats{margin-top:48px}
+  .formats .lbl{font-size:.85rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .fchips{display:flex;flex-wrap:wrap;gap:10px}
+
+  /* Quotes */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .qcard{margin:0;background:var(--white);border:1.5px solid var(--line);border-radius:var(--radius);padding:34px 30px;display:flex;flex-direction:column;gap:18px;transition:transform .25s,box-shadow .25s,border-color .25s}
+  .qcard::before{content:"\201C";font-size:5.5rem;line-height:.55;height:36px;color:var(--amber);font-weight:800}
+  .qcard blockquote{font-size:1.25rem;line-height:1.5;color:var(--green-900);font-weight:600}
+  .qcard figcaption{margin-top:auto;padding-top:6px;font-size:1rem;color:var(--muted);line-height:1.4}
+  .qcard figcaption b{display:block;color:var(--ink);font-size:1.1rem}
+  .qcard:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(15,49,37,.12);border-color:var(--green-600)}
+
+  /* Book + form */
+  .book{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+  .book-lead{color:var(--muted);font-size:1.25rem;line-height:1.55;margin-bottom:8px}
+  .photo.wide{aspect-ratio:3/2;margin:28px 0}
+  .fallback{font-size:1.1rem;color:var(--muted)}
+  .form{background:var(--white);border:1.5px solid var(--line);border-radius:28px;padding:40px;box-shadow:0 24px 54px rgba(15,49,37,.1)}
+  .form h3{font-size:1.65rem;color:var(--green-900);font-weight:800;margin-bottom:22px;letter-spacing:-.01em}
+  .f-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:26px}
+  .f-grid .full{grid-column:1/-1}
+  .form label{display:block;font-weight:700;font-size:1rem;color:var(--ink)}
+  .form input,.form select,.form textarea{display:block;width:100%;margin-top:7px;padding:14px 16px;font:inherit;font-size:1.05rem;font-weight:500;color:var(--ink);background:var(--sand);border:1.5px solid var(--line);border-radius:14px;transition:border-color .15s,box-shadow .15s}
+  .form textarea{resize:vertical;min-height:110px}
+  .form input:focus,.form select:focus,.form textarea:focus{outline:0;border-color:var(--green-600);box-shadow:0 0 0 4px rgba(47,107,79,.18);background:#fff}
+  .form .btn{border:0;cursor:pointer;width:100%}
+  .status{margin-top:14px;font-size:1rem;color:var(--green-700);font-weight:600;min-height:1.4em}
+
   /* Where it grows */
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 
@@ -204,7 +241,8 @@
   .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   @media (max-width:980px){
-    .hero-grid,.talk-feature,.talk-feature.flip,.founder,.seed,.paper,.speak,.reach{grid-template-columns:1fr}
+    .hero-grid,.talk-feature,.talk-feature.flip,.founder,.seed,.paper,.speak,.reach,.book{grid-template-columns:1fr}
+    .offers,.quotes{grid-template-columns:1fr}
     .talk-feature.flip .media{order:0}
     .cards,.grid3{grid-template-columns:1fr}
     .quick-grid{grid-template-columns:1fr 1fr}
@@ -230,6 +268,8 @@
     .collage{padding-bottom:52px}
     .collage .inset{width:46%;left:-6px}
           .quick-grid{grid-template-columns:1fr}
+    .f-grid{grid-template-columns:1fr}
+    .form{padding:28px 22px}
     .rcard{padding:40px 22px 36px}
     .founder-photos .photo:nth-child(2){margin-top:24px}
     .btn{padding:14px 22px}
@@ -250,14 +290,14 @@
     </a>
     <nav aria-label="Main">
       <ul>
-        <li><a href="#reach">Our reach</a></li>
+        <li><a href="#work">Work with us</a></li>
         <li><a href="#talks">Talks</a></li>
         <li><a href="#founder">Founder</a></li>
         <li><a href="#how">How it works</a></li>
         <li><a href="#research">Research</a></li>
       </ul>
     </nav>
-    <a href="#contact" class="btn btn-primary">Get in touch</a>
+    <a href="#book" class="btn btn-primary">Get in touch</a>
   </div>
 </header>
 
@@ -269,10 +309,10 @@
       <div>
         <span class="eyebrow">SEED Amplifiers, Inc.</span>
         <h1>What if the adventure <span>was the intervention?</span></h1>
-        <p class="lead">SEED embeds resilience training inside the goals young people already care about, so the skills stick because they matter.</p>
+        <p class="lead">SEED embeds resilience training inside the goals people already care about, so the skills stick because they matter.</p>
         <div class="cta">
           <a href="#talks" class="btn btn-primary">Watch the talk</a>
-          <a href="#how" class="btn btn-ghost">How it works</a>
+          <a href="#work" class="btn btn-ghost">Work with us</a>
         </div>
       </div>
 
@@ -303,9 +343,9 @@
         <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="#164633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
         <span><b>Meet the founder</b></span>
       </a>
-      <a class="qlink" href="mailto:nate@seedresilience.io?subject=Talk%20inquiry">
+      <a class="qlink" href="#book">
         <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="#164633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
-        <span><b>Book a talk</b></span>
+        <span><b>Book a talk or workshop</b></span>
       </a>
     </div>
   </div>
@@ -323,12 +363,62 @@
           <span class="cap">Online views</span>
         </div>
         <div class="rcard">
-          <span class="num" data-count="1000" data-suffix="+">1,000+</span>
+          <span class="num" data-count="2400" data-suffix="+">2,400+</span>
           <span class="cap">People in the room</span>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- WHAT WE OFFER -->
+  <section id="work" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Three ways to work with SEED</h2>
+        <p>Bring a talk to your event, a workshop to your team, or build SEED into the programs you already run.</p>
+      </div>
+      <div class="offers">
+        <div class="card offer">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+          </div>
+          <h3>Keynotes &amp; Speaking</h3>
+          <p>TEDx-style presentations, conference keynotes, and student or athlete assemblies focused on resilience, identity, and meaningful growth.</p>
+          <a class="btn btn-primary" href="#book" data-interest="Book Nate to speak">Book Nate to speak</a>
+        </div>
+        <div class="card offer">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
+          </div>
+          <h3>Interactive Workshops</h3>
+          <p>Hands-on sessions for teams, educators, coaches, and youth organizations that put SEED principles into practice.</p>
+          <a class="btn btn-primary" href="#book" data-interest="Bring SEED to your organization">Bring SEED to your organization</a>
+        </div>
+        <div class="card offer">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+          </div>
+          <h3>Programs &amp; Partnerships</h3>
+          <p>Collaborations that build resilience development into existing athletic, educational, or organizational experiences.</p>
+          <span class="tag" style="align-self:flex-start;margin:0 0 20px;border-radius:12px;line-height:1.35;padding:8px 12px">Sessions delivered in schools across southwestern Pennsylvania</span>
+          <a class="btn btn-primary" href="#book" data-interest="Explore a partnership">Explore a partnership</a>
+        </div>
+      </div>
+      <div class="formats">
+        <div class="lbl">Formats we offer</div>
+        <div class="fchips">
+          <span class="chip">K&ndash;12 school keynote (45&ndash;60 min)</span>
+          <span class="chip">University keynote (45&ndash;60 min)</span>
+          <span class="chip">Athletic team or department talk</span>
+          <span class="chip">Corporate keynote</span>
+          <span class="chip">Conference keynote</span>
+          <span class="chip">Virtual keynote</span>
+          <span class="chip">Interactive workshop (2&ndash;3 hours)</span>
+          <span class="chip">Full-day training (up to 6 hours)</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- TALKS (big) -->
   <section id="talks">
@@ -345,7 +435,7 @@
         <div>
           <span class="tag">Talk one &middot; Now streaming</span>
           <h3>Nate's first TEDx talk</h3>
-          <p>More than 100,000 views, and the starting point for everything SEED.</p>
+          <p>Watched more than 100,000 times.</p>
           <a class="textlink" href="https://youtu.be/0JmkDyIbEZw" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
         </div>
       </div>
@@ -380,12 +470,12 @@
       <div>
         <span class="tag">The founder</span>
         <h2 class="h2" style="margin-top:14px">Nate Roy</h2>
-        <p class="bio">Nate developed the SEED framework from two places that rarely meet: elite sport and the science of the adolescent brain.</p>
+        <p class="bio">Nate developed the SEED framework from two places that rarely meet: elite sport and the science of the brain.</p>
         <ul class="facts">
           <li>Athlete with Team USA Bobsled</li>
-          <li>Medical student at Weill Cornell, pursuing child and adolescent psychiatry</li>
-          <li>Founder of Cortex Flex Inc., mental and physical resilience training for teen athletes</li>
-          <li>Co-founder of CAPSuLe, a nonprofit sharing child and adolescent development research with the public</li>
+          <li>Medical student at Weill Cornell Medicine, pursuing psychiatry</li>
+          <li>Founder of Cortex Flex, a digital athlete gym for the mind &amp; nervous system</li>
+          <li>Co-founder of CAPSuLe, a nonprofit creating game-driven resilience learning for K&ndash;12 classrooms and homes</li>
         </ul>
         <blockquote class="excerpt">&ldquo;The brain resists learning that is irrelevant to the adventure in which we find our identity. When learning is embedded in a journey that already matters to a person, acquisition happens by nature.&rdquo;
           <cite>Nate Roy, from his September 2026 TEDx talk</cite>
@@ -394,8 +484,32 @@
     </div>
   </section>
 
+  <!-- WHAT ORGANIZERS SAY -->
+  <section id="proof">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What organizers say</h2>
+        <p>Excerpts from letters written about Nate's talks and programs.</p>
+      </div>
+      <div class="quotes">
+        <figure class="qcard">
+          <blockquote>His delivery of the tone, speed and emotion was masterful, showed serious practice, and perfectly matched the message he wanted to share.</blockquote>
+          <figcaption><b>Nancy Tang Chen</b>Lead Organizer, TEDxMarianopolisCollege</figcaption>
+        </figure>
+        <figure class="qcard">
+          <blockquote>A program that translates complex neurological and psychological concepts into real-world strategies that resonate with students.</blockquote>
+          <figcaption><b>Alan R. Fritz, Jr.</b>Superintendent, South Side Area School District</figcaption>
+        </figure>
+        <figure class="qcard">
+          <blockquote>His work is meaningful, forward-thinking, and most importantly&mdash;effective.</blockquote>
+          <figcaption><b>Alan R. Fritz, Jr.</b>Superintendent, South Side Area School District</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- HOW IT WORKS (interactive) -->
-  <section id="how">
+  <section id="how" class="alt">
     <div class="wrap">
       <div class="section-head">
         <h2>Plant a SEED in three steps</h2>
@@ -446,7 +560,7 @@
             </div>
             <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
               <h3>Plant the SEEDs</h3>
-              <p>Bring the exercises into the thinking, training, planning, preparing, and performing moments kids already care about. That is where brains pick up adversity strategies, reframing techniques, and emotional response patterns that stand-alone mental health programs often fail to teach.</p>
+              <p>Bring the exercises into the thinking, training, planning, preparing, and performing moments people already care about. That is where brains pick up adversity strategies, reframing techniques, and emotional response patterns that stand-alone mental health programs often fail to teach.</p>
               <div class="eg"><b>Nate's own SEED</b>put text here</div>
             </div>
           </div>
@@ -456,11 +570,11 @@
   </section>
 
   <!-- THE PROBLEM (hover reveal) -->
-  <section id="why" class="alt">
+  <section id="why">
     <div class="wrap">
       <div class="section-head">
         <h2>Why most wellness programs miss</h2>
-        <p>School-based wellness programs often produce mixed results, and sometimes cause harm. Our research argues the ideas inside them are not the problem. The way they are delivered is. Hover over a card to compare the clinic with the classroom.</p>
+        <p>Wellness programs brought into schools and clubs often produce mixed results, and sometimes cause harm. Our research argues the ideas inside them are not the problem. The way they are delivered is. Hover over a card to compare the clinic with the classroom.</p>
       </div>
       <div class="cards">
         <div class="card" tabindex="0">
@@ -468,7 +582,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
           </div>
           <h3>An imposed goal</h3>
-          <p>When the change isn't self-chosen, it can clash with how a young person sees themselves. The brain can reject what doesn't fit who they think they are.</p>
+          <p>When the change isn't self-chosen, it can clash with how a person sees themselves. The brain can reject what doesn't fit who they think they are.</p>
           <div class="vs"><div class="good"><b>In the clinic:</b> you choose what to work on.</div><div class="bad"><b>In a universal program:</b> someone else decides.</div></div>
           <span class="hint">Hover to compare</span>
         </div>
@@ -477,7 +591,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg>
           </div>
           <h3>An imposed setting</h3>
-          <p>Learning scales with how meaningful an experience feels. A program with no connection to what a teen cares about often lacks the weight to change anything.</p>
+          <p>Learning scales with how meaningful an experience feels. A program with no connection to what a person cares about often lacks the weight to change anything.</p>
           <div class="vs"><div class="good"><b>In the clinic:</b> you walk in because it matters to you.</div><div class="bad"><b>In a universal program:</b> you are required to be there.</div></div>
           <span class="hint">Hover to compare</span>
         </div>
@@ -486,7 +600,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
           </div>
           <h3>An imposed relationship</h3>
-          <p>A clinician is someone you seek out. A guest facilitator is someone you were handed. Without that voluntary trust, kids disengage or quietly resist.</p>
+          <p>A clinician is someone you seek out. A guest facilitator is someone you were handed. Without that voluntary trust, people disengage or quietly resist.</p>
           <div class="vs"><div class="good"><b>In the clinic:</b> you seek out the clinician.</div><div class="bad"><b>In a universal program:</b> the facilitator is assigned.</div></div>
           <span class="hint">Hover to compare</span>
         </div>
@@ -495,11 +609,11 @@
   </section>
 
   <!-- WHERE IT GROWS -->
-  <section id="where">
+  <section id="where" class="alt">
     <div class="wrap">
       <div class="section-head">
         <h2>Where SEEDs grow</h2>
-        <p>The soil is everywhere. Here is where we are planting first.</p>
+        <p>The soil is everywhere. If a group shares a goal, there is room for a SEED.</p>
       </div>
       <div class="grid3">
         <div class="card">
@@ -507,7 +621,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
           </div>
           <h3>Athletics</h3>
-          <p>Our first SEED. Teen athletes build habits for handling adversity, regulating emotion, connecting with teammates, and evaluating their own thoughts, inside the sport they love.</p>
+          <p>Our first SEED. Athletes build habits for handling adversity, regulating emotion, connecting with teammates, and evaluating their own thoughts, inside the sport they love.</p>
           <span class="tag">Proven ground</span>
         </div>
         <div class="card">
@@ -520,27 +634,31 @@
         </div>
         <div class="card">
           <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12c0-5-4-8-9-8 0 5 3 8 9 8z"/><path d="M12 10c0-4 3-6 8-6 0 4-3 6-8 6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
           </div>
-          <h3>Anywhere</h3>
-          <p>Art projects, classroom competitions, workplace challenges, home. If a group shares a goal, there is soil for a SEED.</p>
-          <span class="tag">Scales to any room</span>
+          <h3>Classrooms &amp; schools</h3>
+          <p>Classroom competitions, projects, and clubs become the training ground for resilience, instead of one more class to sit through.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPEAKING CTA -->
-  <section style="padding-top:0">
-    <div class="wrap">
-      <div class="speak">
-        <div>
-          <h2>Bring SEED to your room</h2>
-          <p>Nate speaks at schools, teams, clubs, and conferences about how to plant SEEDs in the groups people already lead.</p>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <h3>Arts &amp; performance</h3>
+          <p>Music, theater, and art projects, where creating and performing already mean facing nerves and setbacks.</p>
         </div>
-        <div class="side">
-          <a class="btn btn-amber" href="mailto:nate@seedresilience.io?subject=Talk%20inquiry">Book a talk</a>
-          <a class="textlink" style="color:#fff;border-color:var(--amber)" href="#talks">Watch him first &rarr;</a>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <h3>Workplaces &amp; teams</h3>
+          <p>Workplace challenges, entrepreneurship, and vocational pursuits, where a shared goal is already on the table.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+          </div>
+          <h3>Home &amp; community</h3>
+          <p>Family routines and community service: anywhere a group is working toward something together.</p>
         </div>
       </div>
     </div>
@@ -551,7 +669,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>The research behind SEED</h2>
-        <p>SEED is grounded in clinical and developmental science, and we are putting it up for scrutiny.</p>
+        <p>SEED is grounded in clinical and developmental science, and we are putting it up for scrutiny. The preprint starts with adolescents. The same idea applies wherever people are pursuing a goal they chose.</p>
       </div>
       <div class="paper">
         <a class="preview" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7045858" target="_blank" rel="noopener" aria-label="Open the preprint on SSRN">
@@ -575,16 +693,38 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <div class="contact-box">
-        <h2>Let's plant something together</h2>
-        <p>Coach, teacher, program leader, or researcher: tell us about the adventure your group is already on, or ask about booking a talk or event.</p>
-        <div class="emails">
-          <a class="btn btn-primary" href="mailto:nate@seedresilience.io">nate@seedresilience.io</a>
-        </div>
+  <!-- BOOK -->
+  <section id="book">
+    <div class="wrap book">
+      <div>
+        <h2 class="h2">Let's plant something together</h2>
+        <p class="book-lead">Coach, teacher, event planner, or program leader: tell us about the room you want to reach and we will follow up.</p>
+        <figure class="photo wide">
+          <img src="assets/nate-speaking-students.jpg" alt="Nate Roy speaking with a gym full of students" loading="lazy">
+        </figure>
+        <p class="fallback">Prefer email? <a class="textlink" href="mailto:jesse@seedresilience.io">jesse@seedresilience.io</a></p>
       </div>
+      <form class="form" id="inquiry">
+        <h3>Tell us about your event</h3>
+        <div class="f-grid">
+          <label>Your name<input name="name" required autocomplete="name"></label>
+          <label>Email<input type="email" name="email" required autocomplete="email"></label>
+          <label class="full">Organization<input name="org" required autocomplete="organization"></label>
+          <label class="full">I'm interested in
+            <select name="interest" id="interest">
+              <option>Book Nate to speak</option>
+              <option>Bring SEED to your organization</option>
+              <option>Explore a partnership</option>
+            </select>
+          </label>
+          <label class="full">Event type<select name="type"><option>K–12 school keynote (45–60 min)</option><option>University keynote (45–60 min)</option><option>Athletic team or department talk</option><option>Nonprofit or community keynote</option><option>Corporate keynote</option><option>Conference keynote</option><option>Virtual keynote (45–60 min)</option><option>Interactive workshop (2–3 hours)</option><option>Full-day training (up to 6 hours)</option><option>Keynote + workshop package</option><option>Not sure yet</option></select></label>
+          <label>Anticipated date<input name="date" placeholder="e.g., March 2027, or flexible"></label>
+          <label>Audience size<input name="size" placeholder="About how many people?"></label>
+          <label class="full">What are you looking for?<textarea name="msg" rows="4" required placeholder="A few sentences about your group and your goals"></textarea></label>
+        </div>
+        <button class="btn btn-primary" type="submit">Send inquiry</button>
+        <p class="status" id="formStatus" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
@@ -655,6 +795,27 @@
   document.querySelectorAll('.card[tabindex]').forEach(function(c){
     c.addEventListener('click', function(){ c.classList.toggle('open'); });
   });
+
+  // 4) Offer buttons preselect the inquiry type; the form builds an email to the team.
+  (function(){
+    var sel = document.getElementById('interest');
+    document.querySelectorAll('[data-interest]').forEach(function(a){
+      a.addEventListener('click', function(){ if(sel) sel.value = a.getAttribute('data-interest'); });
+    });
+    var f = document.getElementById('inquiry'), st = document.getElementById('formStatus');
+    if(!f) return;
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = new FormData(f), g = function(k){ return String(d.get(k) || '').trim(); };
+      var subject = g('interest') + ' - ' + g('org');
+      var body = ['Name: ' + g('name'), 'Email: ' + g('email'), 'Organization: ' + g('org'),
+        'Interested in: ' + g('interest'), 'Event type: ' + g('type'),
+        'Anticipated date: ' + (g('date') || 'Not sure yet'), 'Audience size: ' + (g('size') || 'Not sure yet'),
+        '', 'What we are looking for:', g('msg')].join('\r\n');
+      st.textContent = 'Opening your email app. If nothing opens, please email jesse@seedresilience.io and paste in your details.';
+      window.location.href = 'mailto:jesse@seedresilience.io?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  })();
 </script>
 </body>
 </html>
