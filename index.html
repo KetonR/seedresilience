@@ -173,6 +173,9 @@
   .reach-band{scroll-margin-top:80px}
   .offers{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
   .offer{display:flex;flex-direction:column}
+  .offer-photo{margin:-34px -30px 24px;aspect-ratio:3/2;overflow:hidden}
+  .offer-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+  .offer:hover .offer-photo img{transform:scale(1.05)}
   .offer p{margin-bottom:24px}
   .offer .btn{margin-top:auto;align-self:stretch;text-align:center;font-size:1rem;padding:15px 22px;border-radius:18px}
   .formats{margin-top:48px}
@@ -384,6 +387,7 @@
       </div>
       <div class="offers">
         <div class="card offer">
+          <div class="offer-photo"><img src="assets/session-talk.jpg" alt="Nate speaking to a gym of students" loading="lazy"></div>
           <div class="icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
           </div>
@@ -392,6 +396,7 @@
           <a class="btn btn-primary" href="#book" data-interest="Book Nate to speak">Book Nate to speak</a>
         </div>
         <div class="card offer">
+          <div class="offer-photo"><img src="assets/session-stage-sidekick.jpg" alt="Nate and a co-presenter leading a group activity" loading="lazy"></div>
           <div class="icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
           </div>
@@ -400,6 +405,7 @@
           <a class="btn btn-primary" href="#book" data-interest="Bring SEED to your organization">Bring SEED to your organization</a>
         </div>
         <div class="card offer">
+          <div class="offer-photo"><img src="assets/session-group.jpg" alt="Nate with students after a school session" loading="lazy"></div>
           <div class="icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
           </div>
