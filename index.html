@@ -192,6 +192,8 @@
   .book{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
   .book-lead{color:var(--muted);font-size:1.25rem;line-height:1.55;margin-bottom:8px}
   .photo.wide{aspect-ratio:3/2;margin:28px 0}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+  .gallery .photo{aspect-ratio:3/2}
   .fallback{font-size:1.1rem;color:var(--muted)}
   .form{background:var(--white);border:1.5px solid var(--line);border-radius:28px;padding:40px;box-shadow:0 24px 54px rgba(15,49,37,.1)}
   .form h3{font-size:1.65rem;color:var(--green-900);font-weight:800;margin-bottom:22px;letter-spacing:-.01em}
@@ -241,6 +243,7 @@
   .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   @media (max-width:980px){
+    .gallery{grid-template-columns:repeat(2,1fr)}
     .hero-grid,.talk-feature,.talk-feature.flip,.founder,.seed,.paper,.speak,.reach,.book{grid-template-columns:1fr}
     .offers,.quotes{grid-template-columns:1fr}
     .talk-feature.flip .media{order:0}
@@ -260,6 +263,8 @@
     .hint{display:none}
   }
   @media (max-width:560px){
+    .gallery{grid-template-columns:1fr 1fr;gap:10px}
+    .gallery .photo figcaption{font-size:.78rem;padding:24px 10px 8px}
     .nav{height:66px}
     .brand{font-size:1rem;white-space:nowrap;gap:8px}
     .brand svg{width:28px;height:28px}
@@ -694,6 +699,21 @@
   </section>
 
   <!-- BOOK -->
+  <section id="inroom">
+    <div class="wrap">
+      <h2 class="h2">In the room</h2>
+      <p class="lead">Talks and workshops are built to be played, not just heard.</p>
+      <div class="gallery">
+      <figure class="photo"><img src="assets/session-jump.jpg" alt="Nate leaping across a gym during an interactive session" loading="lazy"><figcaption>Interactive, hands-on sessions</figcaption></figure>
+      <figure class="photo"><img src="assets/session-group.jpg" alt="Nate with a group of elementary students after a talk" loading="lazy"><figcaption>After a school talk</figcaption></figure>
+      <figure class="photo"><img src="assets/session-stage-sidekick.jpg" alt="Nate and a co-presenter leading a group activity on stage" loading="lazy"><figcaption>Group activities on stage</figcaption></figure>
+      <figure class="photo"><img src="assets/session-hands-up.jpg" alt="Students raising their hands as Nate speaks" loading="lazy"><figcaption>Every hand up</figcaption></figure>
+      <figure class="photo"><img src="assets/session-conversation.jpg" alt="Nate talking with students after a session" loading="lazy"><figcaption>Conversations after the talk</figcaption></figure>
+      <figure class="photo"><img src="assets/session-handshake.jpg" alt="Nate greeting students in a crowded gym" loading="lazy"><figcaption>Meeting students in the room</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
   <section id="book">
     <div class="wrap book">
       <div>
