@@ -99,6 +99,12 @@
   .media.soon img{filter:brightness(.78);transition:transform .6s,filter .3s}
   .media.soon:hover img{transform:scale(1.04);filter:brightness(.9)}
   .media .pill{position:absolute;left:20px;bottom:20px;background:var(--amber);color:#2e2204;font-weight:800;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-radius:999px}
+  .talk-hero{margin-bottom:64px}
+  .talk-hero .media{max-width:1040px;margin:0 auto;border-radius:28px;box-shadow:0 34px 80px rgba(15,49,37,.28)}
+  .talk-hero-copy{max-width:760px;margin:34px auto 0;text-align:center}
+  .talk-hero-copy h3{font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.12;color:var(--green-900);margin:12px 0 14px;letter-spacing:-.02em;font-weight:800}
+  .talk-hero-copy p{color:var(--muted);font-size:1.25rem;margin-bottom:16px}
+  .talk-feature.small{grid-template-columns:1fr 1.2fr;max-width:900px;margin-left:auto;margin-right:auto;gap:32px}
   .talk-feature h3{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.15;color:var(--green-900);margin:12px 0 14px;letter-spacing:-.02em;font-weight:800}
   .talk-feature p{color:var(--muted);font-size:1.2rem;margin-bottom:16px}
   .textlink{font-weight:800;color:var(--green-700);font-size:1.1rem;border-bottom:3px solid var(--amber);padding-bottom:2px;transition:color .15s}
@@ -194,9 +200,13 @@
   /* Book + form */
   .book{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
   .book-lead{color:var(--muted);font-size:1.25rem;line-height:1.55;margin-bottom:8px}
+  .carousel{overflow:hidden;margin-top:36px;padding:10px 0 34px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .ctrack{display:flex;gap:16px;width:max-content;animation:spin 70s linear infinite}
+  .carousel:hover .ctrack,.carousel:focus-within .ctrack{animation-play-state:paused}
+  .ctrack .photo{flex:none;width:min(400px,78vw);aspect-ratio:3/2}
+  @keyframes spin{to{transform:translateX(calc(-50% - 8px))}}
+  @media (prefers-reduced-motion:reduce){.carousel{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.ctrack{animation:none}.ctrack .clone{display:none}}
   .photo.wide{aspect-ratio:3/2;margin:28px 0}
-  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
-  .gallery .photo{aspect-ratio:3/2}
   .fallback{font-size:1.1rem;color:var(--muted)}
   .form{background:var(--white);border:1.5px solid var(--line);border-radius:28px;padding:40px;box-shadow:0 24px 54px rgba(15,49,37,.1)}
   .form h3{font-size:1.65rem;color:var(--green-900);font-weight:800;margin-bottom:22px;letter-spacing:-.01em}
@@ -246,10 +256,10 @@
   .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   @media (max-width:980px){
-    .gallery{grid-template-columns:repeat(2,1fr)}
     .hero-grid,.talk-feature,.talk-feature.flip,.founder,.seed,.paper,.speak,.reach,.book{grid-template-columns:1fr}
     .offers,.quotes{grid-template-columns:1fr}
     .talk-feature.flip .media{order:0}
+    .talk-feature.small{grid-template-columns:1fr;gap:20px}
     .cards,.grid3{grid-template-columns:1fr}
     .quick-grid{grid-template-columns:1fr 1fr}
     .nav ul{display:none}
@@ -266,8 +276,6 @@
     .hint{display:none}
   }
   @media (max-width:560px){
-    .gallery{grid-template-columns:1fr 1fr;gap:10px}
-    .gallery .photo figcaption{font-size:.78rem;padding:24px 10px 8px}
     .nav{height:66px}
     .brand{font-size:1rem;white-space:nowrap;gap:8px}
     .brand svg{width:28px;height:28px}
@@ -339,7 +347,7 @@
   <!-- QUICK LINKS -->
   <div class="quick">
     <div class="wrap quick-grid">
-      <a class="qlink" href="https://youtu.be/0JmkDyIbEZw" target="_blank" rel="noopener">
+      <a class="qlink" href="#talks">
         <span class="qi"><svg viewBox="0 0 24 24" fill="none" stroke="#164633" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z" fill="#164633"/></svg></span>
         <span><b>Watch the TEDx talk</b></span>
       </a>
@@ -438,27 +446,26 @@
         <p>Two TEDx talks, and a growing list of rooms. SEED travels best when people can hear it in person.</p>
       </div>
 
-      <div class="talk-feature">
+      <div class="talk-hero">
         <div class="media">
-          <iframe src="https://www.youtube-nocookie.com/embed/0JmkDyIbEZw" title="Nate Roy, TEDx talk" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/6jDoSaJEeO8" title="Nate Roy, TEDx talk: What if the adventure was the intervention?" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <div>
-          <span class="tag">Talk one &middot; Now streaming</span>
-          <h3>Nate's first TEDx talk</h3>
-          <p>Watched more than 100,000 times.</p>
-          <a class="textlink" href="https://youtu.be/0JmkDyIbEZw" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+        <div class="talk-hero-copy">
+          <span class="tag">Featured talk &middot; TEDx</span>
+          <h3>What if the adventure was the intervention?</h3>
+          <p>The full SEED idea, in Nate's words. Why universal wellness programs so often fall short, and how to plant resilience inside the goals a group already cares about.</p>
+          <a class="textlink" href="https://youtu.be/6jDoSaJEeO8" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
         </div>
       </div>
 
-      <div class="talk-feature flip" style="margin-bottom:0">
-        <div class="media soon">
-          <img src="assets/nate-tedx-stage.jpg" alt="Nate Roy speaking on the TEDx stage in a light blue suit" loading="lazy">
-          <span class="pill">Coming soon</span>
+      <div class="talk-feature small" style="margin-bottom:0">
+        <div class="media">
+          <iframe src="https://www.youtube-nocookie.com/embed/0JmkDyIbEZw" title="Nate Roy, first TEDx talk" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div>
-          <span class="tag">Talk two &middot; Filmed Sept 18, 2026</span>
-          <h3>What if the adventure was the intervention?</h3>
-          <p>The full SEED idea, in Nate's words. Filmed in September and headed to YouTube soon.</p>
+          <span class="tag">Nate's first TEDx talk</span>
+          <p>Watched more than 100,000 times.</p>
+          <a class="textlink" href="https://youtu.be/0JmkDyIbEZw" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
         </div>
       </div>
     </div>
@@ -705,13 +712,23 @@
     <div class="wrap">
       <h2 class="h2">In the room</h2>
       <p class="lead">Talks and workshops are built to be played, not just heard.</p>
-      <div class="gallery">
-      <figure class="photo"><img src="assets/session-jump.jpg" alt="Nate leaping across a gym during an interactive session" loading="lazy"><figcaption>Interactive, hands-on sessions</figcaption></figure>
-      <figure class="photo"><img src="assets/session-group.jpg" alt="Nate with a group of elementary students after a talk" loading="lazy"><figcaption>After a school talk</figcaption></figure>
-      <figure class="photo"><img src="assets/session-stage-sidekick.jpg" alt="Nate and a co-presenter leading a group activity on stage" loading="lazy"><figcaption>Group activities on stage</figcaption></figure>
-      <figure class="photo"><img src="assets/session-hands-up.jpg" alt="Students raising their hands as Nate speaks" loading="lazy"><figcaption>Every hand up</figcaption></figure>
-      <figure class="photo"><img src="assets/session-conversation.jpg" alt="Nate talking with students after a session" loading="lazy"><figcaption>Conversations after the talk</figcaption></figure>
-      <figure class="photo"><img src="assets/session-handshake.jpg" alt="Nate greeting students in a crowded gym" loading="lazy"><figcaption>Meeting students in the room</figcaption></figure>
+      <div class="carousel" aria-label="Photos from talks and workshops">
+        <div class="ctrack">
+          <figure class="photo"><img src="assets/session-jump.jpg" alt="Nate leaping across a gym during an interactive session" loading="lazy"></figure>
+          <figure class="photo"><img src="assets/session-group.jpg" alt="Nate with a group of elementary students after a talk" loading="lazy"></figure>
+          <figure class="photo"><img src="assets/session-stage-sidekick.jpg" alt="Nate and a co-presenter leading a group activity on stage" loading="lazy"></figure>
+          <figure class="photo"><img src="assets/session-talk.jpg" alt="Nate speaking to a gym full of students" loading="lazy"></figure>
+          <figure class="photo"><img src="assets/session-conversation.jpg" alt="Nate talking with students after a session" loading="lazy"></figure>
+          <figure class="photo"><img src="assets/session-handshake.jpg" alt="Nate greeting students in a crowded gym" loading="lazy"></figure>
+          <figure class="photo"><img src="assets/session-hands-up.jpg" alt="Students raising their hands as Nate speaks" loading="lazy"></figure>
+          <figure class="photo clone" aria-hidden="true"><img src="assets/session-jump.jpg" alt="" loading="lazy"></figure>
+          <figure class="photo clone" aria-hidden="true"><img src="assets/session-group.jpg" alt="" loading="lazy"></figure>
+          <figure class="photo clone" aria-hidden="true"><img src="assets/session-stage-sidekick.jpg" alt="" loading="lazy"></figure>
+          <figure class="photo clone" aria-hidden="true"><img src="assets/session-talk.jpg" alt="" loading="lazy"></figure>
+          <figure class="photo clone" aria-hidden="true"><img src="assets/session-conversation.jpg" alt="" loading="lazy"></figure>
+          <figure class="photo clone" aria-hidden="true"><img src="assets/session-handshake.jpg" alt="" loading="lazy"></figure>
+          <figure class="photo clone" aria-hidden="true"><img src="assets/session-hands-up.jpg" alt="" loading="lazy"></figure>
+        </div>
       </div>
     </div>
   </section>
@@ -724,7 +741,7 @@
         <figure class="photo wide">
           <img src="assets/nate-speaking-students.jpg" alt="Nate Roy speaking with a gym full of students" loading="lazy">
         </figure>
-        <p class="fallback">Prefer email? <a class="textlink" href="mailto:jesse@seedresilience.io">jesse@seedresilience.io</a></p>
+        <p class="fallback">Prefer email? <a class="textlink" href="mailto:jesse@seedresilience.io,nate@seedresilience.io,keton@seedresilience.io?subject=SEED%20inquiry">Email the SEED team</a></p>
       </div>
       <form class="form" id="inquiry">
         <h3>Tell us about your event</h3>
@@ -835,7 +852,7 @@
         'Anticipated date: ' + (g('date') || 'Not sure yet'), 'Audience size: ' + (g('size') || 'Not sure yet'),
         '', 'What we are looking for:', g('msg')].join('\r\n');
       st.textContent = 'Opening your email app. If nothing opens, please email jesse@seedresilience.io and paste in your details.';
-      window.location.href = 'mailto:jesse@seedresilience.io?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      window.location.href = 'mailto:jesse@seedresilience.io,nate@seedresilience.io,keton@seedresilience.io?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
   })();
 </script>
