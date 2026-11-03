@@ -166,6 +166,13 @@
   .hint{display:block;margin-top:16px;font-size:.88rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green-600)}
   .card:hover .hint,.card.open .hint{display:none}
   .card .tag{margin-top:18px}
+  .plink{display:flex;width:fit-content;max-width:100%;white-space:nowrap;align-items:center;gap:8px;margin-top:18px;padding:10px 16px;border-radius:999px;background:var(--green-100);color:var(--green-900);font-weight:800;font-size:1rem;border:1.5px solid transparent;transition:background .2s,border-color .2s,transform .2s}
+  .plink small{font-weight:600;color:var(--muted);font-size:.85rem}
+  .plink svg{width:16px;height:16px;transition:transform .2s}
+  .plink:hover,.plink:focus-visible{background:var(--amber);border-color:var(--amber);transform:translateY(-2px)}
+  .plink:hover small,.plink:focus-visible small{color:var(--green-900)}
+  .plink:hover svg{transform:translate(3px,-3px)}
+
 
 
   /* Offers */
@@ -631,6 +638,7 @@
           <h3>Athletics</h3>
           <p>Our first SEED. Athletes build habits for handling adversity, regulating emotion, connecting with teammates, and evaluating their own thoughts, inside the sport they love.</p>
           <span class="tag">Proven ground</span>
+          <a class="plink" href="https://cortexflex.org/en" target="_blank" rel="noopener">Cortex Flex <small>athlete program</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
         </div>
         <div class="card">
           <div class="icon">
@@ -646,6 +654,7 @@
           </div>
           <h3>Classrooms &amp; schools</h3>
           <p>Classroom competitions, projects, and clubs become the training ground for resilience, instead of one more class to sit through.</p>
+          <a class="plink" href="https://thecapsl.org" target="_blank" rel="noopener">CAPSuLe <small>K&ndash;12 nonprofit</small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
         </div>
         <div class="card">
           <div class="icon">
