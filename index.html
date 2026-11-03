@@ -99,12 +99,6 @@
   .media.soon img{filter:brightness(.78);transition:transform .6s,filter .3s}
   .media.soon:hover img{transform:scale(1.04);filter:brightness(.9)}
   .media .pill{position:absolute;left:20px;bottom:20px;background:var(--amber);color:#2e2204;font-weight:800;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-radius:999px}
-  .talk-hero{margin-bottom:64px}
-  .talk-hero .media{max-width:1040px;margin:0 auto;border-radius:28px;box-shadow:0 34px 80px rgba(15,49,37,.28)}
-  .talk-hero-copy{max-width:760px;margin:34px auto 0;text-align:center}
-  .talk-hero-copy h3{font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.12;color:var(--green-900);margin:12px 0 14px;letter-spacing:-.02em;font-weight:800}
-  .talk-hero-copy p{color:var(--muted);font-size:1.25rem;margin-bottom:16px}
-  .talk-feature.small{grid-template-columns:1fr 1.2fr;max-width:900px;margin-left:auto;margin-right:auto;gap:32px}
   .talk-feature h3{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.15;color:var(--green-900);margin:12px 0 14px;letter-spacing:-.02em;font-weight:800}
   .talk-feature p{color:var(--muted);font-size:1.2rem;margin-bottom:16px}
   .textlink{font-weight:800;color:var(--green-700);font-size:1.1rem;border-bottom:3px solid var(--amber);padding-bottom:2px;transition:color .15s}
@@ -259,8 +253,7 @@
     .hero-grid,.talk-feature,.talk-feature.flip,.founder,.seed,.paper,.speak,.reach,.book{grid-template-columns:1fr}
     .offers,.quotes{grid-template-columns:1fr}
     .talk-feature.flip .media{order:0}
-    .talk-feature.small{grid-template-columns:1fr;gap:20px}
-    .cards,.grid3{grid-template-columns:1fr}
+      .cards,.grid3{grid-template-columns:1fr}
     .quick-grid{grid-template-columns:1fr 1fr}
     .nav ul{display:none}
     .hero{padding:40px 0 36px}
@@ -390,7 +383,7 @@
   <section id="work" class="alt">
     <div class="wrap">
       <div class="section-head">
-        <h2>Three ways to work with SEED</h2>
+        <h2>Ways to work with SEED</h2>
         <p>Bring a talk to your event, a workshop to your team, or build SEED into the programs you already run.</p>
       </div>
       <div class="offers">
@@ -446,24 +439,25 @@
         <p>Two TEDx talks, and a growing list of rooms. SEED travels best when people can hear it in person.</p>
       </div>
 
-      <div class="talk-hero">
+      <div class="talk-feature">
         <div class="media">
           <iframe src="https://www.youtube-nocookie.com/embed/6jDoSaJEeO8" title="Nate Roy, TEDx talk: What if the adventure was the intervention?" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <div class="talk-hero-copy">
-          <span class="tag">Featured talk &middot; TEDx</span>
+        <div>
+          <span class="tag">Talk two &middot; Now streaming</span>
           <h3>What if the adventure was the intervention?</h3>
           <p>The full SEED idea, in Nate's words. Why universal wellness programs so often fall short, and how to plant resilience inside the goals a group already cares about.</p>
           <a class="textlink" href="https://youtu.be/6jDoSaJEeO8" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
         </div>
       </div>
 
-      <div class="talk-feature small" style="margin-bottom:0">
+      <div class="talk-feature flip" style="margin-bottom:0">
         <div class="media">
           <iframe src="https://www.youtube-nocookie.com/embed/0JmkDyIbEZw" title="Nate Roy, first TEDx talk" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div>
-          <span class="tag">Nate's first TEDx talk</span>
+          <span class="tag">Talk one &middot; Now streaming</span>
+          <h3>Nate's first TEDx talk</h3>
           <p>Watched more than 100,000 times.</p>
           <a class="textlink" href="https://youtu.be/0JmkDyIbEZw" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
         </div>
